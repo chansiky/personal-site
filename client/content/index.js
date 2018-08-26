@@ -1,3 +1,2 @@
-export {default as Intro} from './text'
-
+export * from './text'
 

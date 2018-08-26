@@ -1,13 +1,32 @@
 import React from 'react'
-import {Intro} from '../content'
+import {Link} from 'react-router-dom'
+import {Intro, AboutMe} from '../content'
 
-const Body = () => {
-  return (
-    <div>
-      <h5>
-        hello test
-      </h5>
-    </div>
-  )
+class Body extends React.Component{
+  render(){
+    return (
+      <div>
+        <p>
+          {Intro}
+        </p>
+        <p>
+          check out a few of my projects:
+        </p>
+        <p>
+          <a href="http://code-map.herokuapp.com">Code-Map</a>
+        </p>
+        <p>
+          <a href="http://eaglefox-shopper.herokuapp.com">EagleFox Shopper</a>
+        </p>
+        <p>
+          <a href="http://drawRTC.herokuapp.com">drawRTC</a>
+        </p>
+        <p>
+          {AboutMe}
+        </p>
+      </div>
+    )
+  }
 } 
 
+export default Body

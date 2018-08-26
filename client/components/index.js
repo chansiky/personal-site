@@ -4,6 +4,7 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
+export {default as SideBar} from './side-bar'
 export {default as UserHome} from './user-home'
 export {default as TopBar} from './top-bar'
 export {default as Body} from './body'

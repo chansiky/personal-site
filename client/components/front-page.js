@@ -11,13 +11,10 @@ class FrontPage extends React.Component {
   }
   render(){
     return(
-    <div>
-      <h1>
-        hello world
-      </h1>
-      <TopBar />
-      <Body />
-    </div>
+      <div>
+        <TopBar />
+        <Body />
+      </div>
 
     )
   }

@@ -20,7 +20,6 @@ class Routes extends Component {
 
     return (
       <div>
-      <div>test2</div>
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route component={FrontPage} />
