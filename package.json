@@ -1,7 +1,7 @@
 {
   "name": "chansikyoun",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "personal website of Chan Youn",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -33,10 +33,11 @@
       "git add"
     ]
   },
-  "author": "Fullstack Academy of Code",
+  "author": "github.com/chansiky",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^1.5.1",
+    "@material-ui/icons": "^3.0.1",
     "axios": "^0.15.3",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^4.1.0",
