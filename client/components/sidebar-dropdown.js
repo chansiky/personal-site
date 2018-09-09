@@ -1,10 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const styles = {
-  topic: {
-    cursor: 'pointer'
-  }
-}
+const StyledDivTopic = styled.div`
+    cursor: 'pointer';
+    background-color: 'purple';
+`
 
 class SidebarDropdown extends React.Component{
   constructor(props){
@@ -20,10 +20,10 @@ class SidebarDropdown extends React.Component{
 
   render(){
     return(
-      <div style={styles.topic}>
-        <h1 onClick={this.toggleExpand} >
+      <div >
+        <h4 onClick={this.toggleExpand} >
           {this.props.title}
-        </h1>
+        </h4>
         {this.state.expanded && this.props.content.map((a) => {
           <div >
             a.title
