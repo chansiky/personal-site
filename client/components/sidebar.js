@@ -1,25 +1,16 @@
 import React from 'react'
 import {SidebarDropdown} from './index'
-import { withStyles } from '@material-ui/core/styles'
-import styleRef from '../styleRef'
+import styled from 'styled-components'
 
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    fontColor: styleRef.colorPurple
-  },
-  img: {
-    padding: styleRef.padding,
-     width: '450px',
-     maxWidth: '100%', 
-     maxHeight: '450px', 
-  },
-  table: {
-    padding: styleRef.padding,
-    fontColor: styleRef.colorBlue
-  }
-}
+const StyledSidebarDiv = styled.div`
+  padding: 50px;
+  background-color: firebrick;
+`
+const StyledImg = styled.img`
+  width: 100%;
+  maxWidth: 500px;
+  height: auto;
+`
 
 class Sidebar extends React.Component{
   constructor(){
@@ -29,18 +20,30 @@ class Sidebar extends React.Component{
       posts:  [],
       pastWork: [],
     }
-    console.log(styleRef)
   }
   render(){
     return(
-      <div style={styles.containter}>
-        <img style={styles.img} src="ChanSikYounTheGreat.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+      <StyledSidebarDiv>
+        <StyledImg src="ChanSikYounTheGreat.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
         <SidebarDropdown  title='Projects'  content={this.state.projects} />
         <SidebarDropdown  title='Posts'     content={this.state.posts} />
         <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
-      </div>
+        <div>
+          About
+        </div>
+        <div>
+          Contact:
+        </div>
+        <div>
+          github
+        </div>
+        <div>
+          linkedIn
+        </div>
+
+      </StyledSidebarDiv>
     )
   }
 }
 
-export default withStyles(styles)(Sidebar)
+export default Sidebar

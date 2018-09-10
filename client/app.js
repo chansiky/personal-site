@@ -8,11 +8,16 @@ import {Navbar, Sidebar} from './components'
 import Routes from './routes'
 
 const StyledSidebar = styled(Sidebar)`
+  padding: 50px;
   background-color: blue;
 `;
 
 const StyledGridContainer = styled(Grid)`
+  spacing = 12;
   background-color: magenta;
+  flexDirection: column;
+  justifyContent: flex-end;
+  
 `;
 
 const StyledGridItem = styled(Grid)`
@@ -38,9 +43,6 @@ const App = () => {
   return (
     <div background-color='red'>
       <StyledGridContainer container 
-        background-color='red'
-        styles={styles.container}
-        spacing={12}
       >
         <CssBaseline />
         
