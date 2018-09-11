@@ -1,10 +1,11 @@
 import React from 'react'
 import {SidebarDropdown} from './index'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const StyledSidebarDiv = styled.div`
   padding: 50px;
-  background-color: firebrick;
+  background-color: ivory;
 `
 const StyledImg = styled.img`
   width: 100%;
@@ -28,19 +29,22 @@ class Sidebar extends React.Component{
         <SidebarDropdown  title='Projects'  content={this.state.projects} />
         <SidebarDropdown  title='Posts'     content={this.state.posts} />
         <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
-        <div>
+        <h4>
           About
-        </div>
-        <div>
+        </h4>
+        <h4>
           Contact:
-        </div>
-        <div>
-          github
-        </div>
-        <div>
-          linkedIn
-        </div>
-
+        </h4>
+        <a href="www.github.com/chansiky">
+          <div >
+            github
+          </div>
+        </a>
+        <a href="www.linkedin.com/in/chansiky">
+          <div>
+            linkedIn
+          </div>
+        </a>
       </StyledSidebarDiv>
     )
   }
