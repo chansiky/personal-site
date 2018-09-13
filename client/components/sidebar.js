@@ -3,7 +3,7 @@ import {SidebarDropdown} from './index'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {dispatchGetProjectList} from '../store' 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 const StyledSidebarDiv = styled.div`
   padding: 50px;
@@ -17,23 +17,28 @@ const StyledImg = styled.img`
 
 class Sidebar extends React.Component{
   constructor(){
-    
     super()
     this.state = {
       projects: [],
       posts:  [],
       pastWork: [],
     }
-    console.log('testing')
   }
-  componentDidMount(){
-    this.props.getProjectList()
+
+  async componentDidMount(){
+    console.log('getting the projectList')
+    await this.props.getProjectList()
+    console.log('finished getting the projectList')
+    console.log('insided comoponent did mount, ', this.props)
+    //console.log(this.props.projectsList)
   }
+
   render(){
+    console.log(this.props)
     return(
       <StyledSidebarDiv>
         <StyledImg src="ChanSikYounTheGreat.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
-        <SidebarDropdown  title='Projects'  content={this.props.projects} />
+        <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
         <SidebarDropdown  title='Posts'     content={this.state.posts} />
         <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
         <h4>
@@ -42,12 +47,12 @@ class Sidebar extends React.Component{
         <h4>
           Contact:
         </h4>
-        <a href="www.github.com/chansiky">
+        <a href="http://www.github.com/chansiky">
           <div >
             github
           </div>
         </a>
-        <a href="www.linkedin.com/in/chansiky">
+        <a href="http://www.linkedin.com/in/chansiky">
           <div>
             linkedIn
           </div>
@@ -63,13 +68,12 @@ const mapStateToProps = (store) => {
   }
 }
 
-
-
-
 const mapDispatchToProps = (dispatch) => {
-  return {
-    getProjectList: () => dispatch(dispatchGetProjectList())
-  }
+  return ({
+    getProjectList: () => {
+      return  dispatch(dispatchGetProjectList())
+    }
+  })
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)

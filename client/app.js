@@ -45,10 +45,11 @@ const App = () => {
       <StyledGridContainer container 
       >
         <CssBaseline />
-        
         <StyledGridItem item 
           xs={3}
         >
+          <StyledSidebar
+          />
         </StyledGridItem>
         <StyledGridItem item 
           xs={6}
@@ -61,10 +62,3 @@ const App = () => {
 }
 
 export default App
-
-
-
-          /*<StyledSidebar
-           />
-
-*/

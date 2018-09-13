@@ -34,7 +34,9 @@ class SidebarDropdown extends React.Component{
       <div> no {this.props.title.toLowerCase()} currently in the database </div>       
     
 */
-    const list = ['a','b','c']
+    const list = ['a','b','c'].map((elem) => {
+      return <div> {elem} </div>
+    })
     return(
       <StyledSidebarDropdownDiv >
         <h4 onClick={this.toggleExpand} >

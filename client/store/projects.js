@@ -22,9 +22,10 @@ const getProjects = projectList => ({type: GET_PROJECTS, projectList})
  */
 
 export const dispatchGetProjectList = () => {
-  async dispatch => {
+  return async (dispatch) => {
     try {
-      const res = await axios.get('/projects/list/')
+      console.log('getting project list')
+      const res = await axios.get(`api/projects/list/`)
       //res should be a list of the projects
       console.log(res.data)
       dispatch(getProjects(res.data))

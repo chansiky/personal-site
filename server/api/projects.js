@@ -3,8 +3,9 @@ const {Projects} = require('../db/models')
 
 router.get('/list', async (req,res,next) => {
   try{
+    console.log(req)
     const projects = await Projects.findAll({
-      attributes: ['title', 'url']
+//      attributes: ['title', 'url']
     })
     res.json(projects)
   }catch (err) {
