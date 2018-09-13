@@ -1,18 +1,22 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {Projects, Posts} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+  const posts = await Promise.all([
+    Posts.create({title: 'React-ing with the Elements', url: 'https://medium.com/@chansiky24/react-ing-with-the-elements-f10e867f022a', media: ''})
+  ])
+  const projects = await Promise.all([
+    Projects.create({title: 'Code-Map', media: 'Code-Map.jpg', description:'Code-Map is a tutorial aggregation engine for self-learners of Code', url:'www.code-map.herokuapp.com' , source: 'https://github.com/code-map/capstone-1804'}),
+    Projects.create({title: 'EagleFox shopper', media: 'EagleFox-Shopper.jpg', description:'EagleFox Shopper is a point of sale application for "OCTAT" goods', url:'http://eaglefox-shopper.herokuapp.com' , source: 'https://github.com/EagleFox-Grace-Shopper/grace-shopper'})
   ])
 
-  console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${posts.length} posts`)
+  console.log(`seeded ${projects.length} posts`)
   console.log(`seeded successfully`)
 }
 

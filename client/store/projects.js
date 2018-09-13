@@ -1,0 +1,47 @@
+import axios from 'axios'
+
+/**
+ * ACTION TYPES
+ */
+const GET_PROJECTS = 'GET_PROJECTS'
+
+/**
+ * INITIAL STATE
+ */
+const defaultProjects = {
+  projectList: []
+}
+
+/**
+ * ACTION CREATORS
+ */
+const getProjects = projectList => ({type: GET_PROJECTS, projectList})
+
+/**
+ * THUNK CREATORS
+ */
+
+export const dispatchGetProjectList = () => {
+  async dispatch => {
+    try {
+      const res = await axios.get('/projects/list/')
+      //res should be a list of the projects
+      console.log(res.data)
+      dispatch(getProjects(res.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
+/**
+ * REDUCER
+ */
+export default function(state = defaultProjects, action) {
+  switch (action.type) {
+    case GET_PROJECTS:
+      return action.projectList
+    default:
+      return state
+  }
+}

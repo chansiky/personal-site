@@ -11,7 +11,6 @@ const StyledSidebarDropdownDiv = styled.div`
 const StyledProjectsListDiv = styled.div`
   justify-content='flex-end';
   background-color: 'teal';
-
 `
 
 class SidebarDropdown extends React.Component{
@@ -27,13 +26,15 @@ class SidebarDropdown extends React.Component{
   }
 
   render(){
-
+/*
     const list = (this.props.content.length > 0) ?
       this.props.content.map((elem) => {
         <div> {elem.title} </div>
       }) :
       <div> no {this.props.title.toLowerCase()} currently in the database </div>       
     
+*/
+    const list = ['a','b','c']
     return(
       <StyledSidebarDropdownDiv >
         <h4 onClick={this.toggleExpand} >

@@ -2,6 +2,8 @@ import React from 'react'
 import {SidebarDropdown} from './index'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {dispatchGetProjectList} from '../store' 
+import {connect} from 'react-redux'
 
 const StyledSidebarDiv = styled.div`
   padding: 50px;
@@ -15,18 +17,23 @@ const StyledImg = styled.img`
 
 class Sidebar extends React.Component{
   constructor(){
+    
     super()
     this.state = {
       projects: [],
       posts:  [],
       pastWork: [],
     }
+    console.log('testing')
+  }
+  componentDidMount(){
+    this.props.getProjectList()
   }
   render(){
     return(
       <StyledSidebarDiv>
         <StyledImg src="ChanSikYounTheGreat.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
-        <SidebarDropdown  title='Projects'  content={this.state.projects} />
+        <SidebarDropdown  title='Projects'  content={this.props.projects} />
         <SidebarDropdown  title='Posts'     content={this.state.posts} />
         <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
         <h4>
@@ -50,4 +57,19 @@ class Sidebar extends React.Component{
   }
 }
 
-export default Sidebar
+const mapStateToProps = (store) => {
+  return {
+    projectsList: store.projects.projectList
+  }
+}
+
+
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProjectList: () => dispatch(dispatchGetProjectList())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)

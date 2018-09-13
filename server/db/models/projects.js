@@ -1,11 +1,15 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Content = db.define('content', {
+const Projects = db.define('projects', {
   title: {
     type: Sequelize.STRING,
-    unique: false,
+    unique: true,
     allowNull: false,
+  },
+  url: {
+    type: Sequelize.STRING,
+    unique: true
   },
   media: {
     type: Sequelize.STRING,
@@ -15,13 +19,10 @@ const Content = db.define('content', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  link: {
-    type: Sequelize.STRING,
-  },
   source: {
     type: Sequelize.STRING,
   }
 })
 
-module.exports = Content
+module.exports = Projects
 

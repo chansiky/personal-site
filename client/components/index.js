@@ -5,9 +5,7 @@
  */
 export {default as Navbar} from './navbar'
 export {default as Sidebar} from './sidebar'
-export {default as UserHome} from './user-home'
 export {default as TopBar} from './top-bar'
 export {default as Body} from './body'
 export {default as FrontPage} from './front-page'
 export {default as SidebarDropdown} from './sidebar-dropdown'
-export {Login, Signup} from './auth-form'
