@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography'
 
 const StyledSidebarDiv = styled.div`
   padding: 20px;
-  background-color: ivory;
 `
 const StyledImg = styled.img`
   width: 100%;
@@ -39,8 +38,12 @@ class Sidebar extends React.Component{
     console.log(this.props)
     return(
       <StyledSidebarDiv>
+          <br/>
+          <br/>
         <Link to={'/'}>
           <StyledImg src="ChanSikYounTheGreatestInTheWorld.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+          <br/>
+          <br/>
           <Typography variant='title' gutterBottom={true}>
             Home
           </Typography>

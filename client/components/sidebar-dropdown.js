@@ -9,11 +9,9 @@ const StyledSidebarDropdownDiv = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   cursor: pointer;
-  background-color: ivory;
 `
 
 const StyledProjectsListDiv = styled.div`
-  background-color: ivory;
 `
 
 const StyledContentItemDiv = styled.div`

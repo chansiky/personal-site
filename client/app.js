@@ -9,23 +9,19 @@ import Routes from './routes'
 
 const StyledSidebar = styled(Sidebar)`
   padding: 50px;
-  background-color: blue;
 `
 
 const StyledGridContainer = styled(Grid)`
-  background-color: magenta;
   flexDirection: column;
   justifyContent: flex-end;
   
 `
 
 const StyledGridItem = styled(Grid)`
-  background-color: coral;
 `
 
 const StyledFrontpageDiv = styled.div`
   padding: 50px;
-  background-color: yellow;
 `
 
 const styles = {

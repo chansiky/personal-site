@@ -6,7 +6,7 @@ const AboutPage = (props) => {
     <div>
       <Emoji />
       <h1>
-        About Me?
+        Who is Chan(sik) Youn?
       </h1>
       <p>
         So a little about myself, glad that you're interested.

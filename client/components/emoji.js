@@ -56,7 +56,7 @@ class Emoji extends React.Component {
   render(){
     return(
       <div>
-        <h2>
+        <h2 textalign='center'>
           <font face='courier new'>
             {this.emojis[this.state.emoji]}
           </font>

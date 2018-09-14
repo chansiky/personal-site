@@ -3,7 +3,6 @@
  * This way, we can import all of our components from the same place, rather than
  * having to figure out which file they belong to!
  */
-export {default as Navbar} from './navbar'
 export {default as Sidebar} from './sidebar'
 export {default as TopBar} from './top-bar'
 export {default as Body} from './body'
