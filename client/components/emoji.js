@@ -1,6 +1,6 @@
 import React from 'react'
 
-class TopBar extends React.Component {
+class Emoji extends React.Component {
   constructor(props){
     super(props)
     this.emojis = [
@@ -56,9 +56,14 @@ class TopBar extends React.Component {
   render(){
     return(
       <div>
+        <h2>
+          <font face='courier new'>
+            {this.emojis[this.state.emoji]}
+          </font>
+        </h2>
       </div>
     )
   }
 }
 
-export default TopBar
+export default Emoji

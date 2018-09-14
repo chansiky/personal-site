@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {dispatchGetProjectList} from '../store' 
 import { connect } from 'react-redux'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 
 const StyledSidebarDiv = styled.div`
-  padding: 50px;
+  padding: 20px;
   background-color: ivory;
 `
 const StyledImg = styled.img`
@@ -37,26 +39,38 @@ class Sidebar extends React.Component{
     console.log(this.props)
     return(
       <StyledSidebarDiv>
-        <StyledImg src="ChanSikYounTheGreat.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+        <Link to={'/'}>
+          <StyledImg src="ChanSikYounTheGreatestInTheWorld.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+          <Typography variant='title' gutterBottom={true}>
+            Home
+          </Typography>
+        </Link>
         <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
         <SidebarDropdown  title='Posts'     content={this.state.posts} />
         <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
-        <h4>
-          About
-        </h4>
-        <h4>
+        <Link to={`/about`}>
+          <Typography variant='title' gutterBottom={true}>
+            About
+          </Typography>
+        </Link>
+        <Typography variant='title' gutterBottom={true}>
           Contact:
-        </h4>
-        <a href="http://www.github.com/chansiky">
-          <div >
-            github
-          </div>
-        </a>
-        <a href="http://www.linkedin.com/in/chansiky">
-          <div>
-            linkedIn
-          </div>
-        </a>
+        </Typography>
+        <Grid container>
+          <Grid item xs={1}/> 
+          <Grid item xs={10}> 
+            <a href="http://www.github.com/chansiky" target="_blank">
+              <Typography variant="subheading" gutterBottom={true} > 
+                github
+              </Typography>
+            </a>
+            <a href="http://www.linkedin.com/in/chansiky" target="_blank">
+              <Typography variant="subheading" gutterBottom={true}> 
+                linkedIn
+              </Typography>
+            </a>
+          </Grid>
+        </Grid>
       </StyledSidebarDiv>
     )
   }

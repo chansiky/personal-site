@@ -15,7 +15,10 @@ const defaultProjects = {
 /**
  * ACTION CREATORS
  */
-const getProjects = projectList => ({type: GET_PROJECTS, projectList})
+const getProjects = projectList => ({
+  type: GET_PROJECTS, 
+  projectList
+})
 
 /**
  * THUNK CREATORS
@@ -41,7 +44,7 @@ export const dispatchGetProjectList = () => {
 export default function(state = defaultProjects, action) {
   switch (action.type) {
     case GET_PROJECTS:
-      return action.projectList
+      return {state, projectList : action.projectList}
     default:
       return state
   }

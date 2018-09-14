@@ -1,18 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 
 const StyledSidebarDropdownDiv = styled.div`
-  cursor: pointer;
-  background-color: 'purple';
+  display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  cursor: pointer;
+  background-color: ivory;
 `
 
 const StyledProjectsListDiv = styled.div`
-  justify-content='flex-end';
-  background-color: 'teal';
+  background-color: ivory;
 `
 
+const StyledContentItemDiv = styled.div`
+
+`
 class SidebarDropdown extends React.Component{
   constructor(props){
     super(props)
@@ -26,23 +32,37 @@ class SidebarDropdown extends React.Component{
   }
 
   render(){
-/*
     const list = (this.props.content.length > 0) ?
-      this.props.content.map((elem) => {
-        <div> {elem.title} </div>
-      }) :
-      <div> no {this.props.title.toLowerCase()} currently in the database </div>       
-    
-*/
-    const list = ['a','b','c'].map((elem) => {
-      return <div> {elem} </div>
-    })
+      <div> 
+        {this.props.content.map((elem) => {
+          return(
+            <Typography 
+              key={elem.id} 
+              variant="subheading" 
+              gutterBottom={true}
+            > 
+              {elem.title}
+            </Typography>
+          )
+        })}
+      </div> :
+      <Typography 
+        variant="subheading" 
+      > 
+        no {this.props.title.toLowerCase()} in the database
+      </Typography>       
+
     return(
       <StyledSidebarDropdownDiv >
-        <h4 onClick={this.toggleExpand} >
+        <Typography variant='title' gutterBottom={true} onClick={this.toggleExpand} >
           {this.props.title}
-        </h4>
-          {(this.state.expanded) && list }
+        </Typography>
+        <Grid container>
+          <Grid item xs={1}/> 
+          <Grid item xs={10}> 
+            {(this.state.expanded) && list }
+          </Grid>
+        </Grid>
       </StyledSidebarDropdownDiv>
     )
   }
@@ -51,13 +71,4 @@ class SidebarDropdown extends React.Component{
 export default SidebarDropdown
 
 /*
-if(this.state.expanded){
-            (this.props.content.length > 0) ?
-              this.props.content.map((a) => {
-                <StyledProjectsListDiv >
-                  &nbsp a.title
-                </StyledProjectsListDiv>
-              }) :
-              <StyledProjectsListDiv > no {this.props.title}  in the directory </StyledProjectsListDiv>
-}
 */
