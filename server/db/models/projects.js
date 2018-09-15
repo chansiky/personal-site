@@ -17,7 +17,6 @@ const Projects = db.define('projects', {
   },
   description : {
     type: Sequelize.STRING,
-    allowNull: false,
   },
   source: {
     type: Sequelize.STRING,

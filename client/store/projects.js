@@ -8,30 +8,29 @@ const GET_PROJECTS = 'GET_PROJECTS'
 /**
  * INITIAL STATE
  */
-const defaultProjects = {
-  projectList: []
+const initialState = {
+  projectsList: []
 }
 
 /**
  * ACTION CREATORS
  */
-const getProjects = projectList => ({
+const getProjects = ( projectsList ) => ({
   type: GET_PROJECTS, 
-  projectList
+  projectsList
 })
 
 /**
  * THUNK CREATORS
  */
 
-export const dispatchGetProjectList = () => {
+export const getProjectsList = () => {
   return async (dispatch) => {
     try {
       console.log('getting project list')
       const res = await axios.get(`api/projects/list/`)
       //res should be a list of the projects
-      console.log(res.data)
-      dispatch(getProjects(res.data))
+      dispatch(getProjects(res))
     } catch (err) {
       console.error(err)
     }
@@ -41,10 +40,10 @@ export const dispatchGetProjectList = () => {
 /**
  * REDUCER
  */
-export default function(state = defaultProjects, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case GET_PROJECTS:
-      return {state, projectList : action.projectList}
+      return {...state, projectsList : action.projectsList}
     default:
       return state
   }

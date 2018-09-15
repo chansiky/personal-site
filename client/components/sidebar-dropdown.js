@@ -30,7 +30,7 @@ class SidebarDropdown extends React.Component{
   }
 
   render(){
-    const list = (this.props.content.length > 0) ?
+    const list = (this.props.content && this.props.content.length > 0) ?
       <div> 
         {this.props.content.map((elem) => {
           return(

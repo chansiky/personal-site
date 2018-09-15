@@ -5,16 +5,12 @@ router.get('/list', async (req,res,next) => {
   try{
     console.log(req)
     const projects = await Projects.findAll({
-//      attributes: ['title', 'url']
+      attributes: ['title', 'url']
     })
-    res.json(projects)
+    res.json(projects.data)
   }catch (err) {
     next(err)
   }
 })
-
-
-
-
 
 module.exports = router

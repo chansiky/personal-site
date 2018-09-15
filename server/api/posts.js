@@ -1,17 +1,14 @@
-const Sequelize = require('sequelize')
-const db = require ('../db')
+const router = require('express').Router()
+const {posts} = require('../db/models')
 
-const Posts = db.define('posts', {
-  title: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
-  },
-  url: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: true
+router.get('/list', async (req,res,next) => {
+  try{
+    const posts = await posts.findAll({
+    })
+    res.json(posts.data)
+  }catch (err){
+    next(err)
   }
-}
+})
 
-module.exports = Posts
+module.exports = router

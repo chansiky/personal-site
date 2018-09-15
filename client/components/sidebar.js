@@ -2,7 +2,7 @@ import React from 'react'
 import {SidebarDropdown} from './index'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import {dispatchGetProjectList} from '../store' 
+import {getProjectsList, getPostsList} from '../store' 
 import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -27,11 +27,8 @@ class Sidebar extends React.Component{
   }
 
   async componentDidMount(){
-    console.log('getting the projectList')
-    await this.props.getProjectList()
-    console.log('finished getting the projectList')
-    console.log('insided comoponent did mount, ', this.props)
-    //console.log(this.props.projectsList)
+    await this.props.setProjectsList()
+    await this.props.setPostsList()
   }
 
   render(){
@@ -49,7 +46,7 @@ class Sidebar extends React.Component{
           </Typography>
         </Link>
         <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
-        <SidebarDropdown  title='Posts'     content={this.state.posts} />
+        <SidebarDropdown  title='Posts'     content={this.props.postsList} />
         <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
         <Link to={`/about`}>
           <Typography variant='title' gutterBottom={true}>
@@ -81,16 +78,20 @@ class Sidebar extends React.Component{
 
 const mapStateToProps = (store) => {
   return {
-    projectsList: store.projects.projectList
+    projectsList: store.projects.projectList,
+    postsList: store.posts.postsList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    getProjectList: () => {
-      return  dispatch(dispatchGetProjectList())
+    setProjectsList: () => {
+      return  dispatch(getProjectsList())
+    },
+    setPostsList: () => {
+      return  dispatch(getPostsList())
     }
-  })
+ })
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
