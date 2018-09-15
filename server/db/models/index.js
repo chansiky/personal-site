@@ -17,5 +17,4 @@ const Posts = require('./posts')
 module.exports = {
   Projects,
   Posts
-
 }
