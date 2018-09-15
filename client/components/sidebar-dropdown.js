@@ -33,6 +33,7 @@ class SidebarDropdown extends React.Component{
     const list = (this.props.content && this.props.content.length > 0) ?
       <div> 
         {this.props.content.map((elem) => {
+          console.log(elem)
           return(
             <Typography 
               key={elem.id} 

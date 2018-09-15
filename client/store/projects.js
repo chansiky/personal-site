@@ -1,48 +1,35 @@
 import axios from 'axios'
 
-/**
- * ACTION TYPES
- */
-const GET_PROJECTS = 'GET_PROJECTS'
+//ACTION TYPES
+const SET_PROJECTS = 'SET_PROJECTS'
 
-/**
- * INITIAL STATE
- */
+//INITIAL STATE
 const initialState = {
   projectsList: []
 }
 
-/**
- * ACTION CREATORS
- */
-const getProjects = ( projectsList ) => ({
-  type: GET_PROJECTS, 
+//ACTION CREATORS
+const setProjectsList = ( projectsList ) => ({
+  type: SET_PROJECTS, 
   projectsList
 })
 
-/**
- * THUNK CREATORS
- */
-
+//THUNK CREATORS
 export const getProjectsList = () => {
   return async (dispatch) => {
     try {
-      console.log('getting project list')
       const res = await axios.get(`api/projects/list/`)
-      //res should be a list of the projects
-      dispatch(getProjects(res))
+      dispatch(setProjectsList(res.data))
     } catch (err) {
       console.error(err)
     }
   }
 }
 
-/**
- * REDUCER
- */
+//REDUCER
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_PROJECTS:
+    case SET_PROJECTS:
       return {...state, projectsList : action.projectsList}
     default:
       return state

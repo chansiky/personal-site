@@ -27,7 +27,9 @@ class Sidebar extends React.Component{
   }
 
   async componentDidMount(){
+    console.log('setting Projects list')
     await this.props.setProjectsList()
+    console.log('setting Posts list')
     await this.props.setPostsList()
   }
 
@@ -78,7 +80,7 @@ class Sidebar extends React.Component{
 
 const mapStateToProps = (store) => {
   return {
-    projectsList: store.projects.projectList,
+    projectsList: store.projects.projectsList,
     postsList: store.posts.postsList
   }
 }

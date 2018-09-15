@@ -14,10 +14,6 @@ const Posts = db.define('posts', {
   media: {
     type: Sequelize.STRING,
     unique: false
-  },
-  date: {
-    type: Sequelize.STRING,
-    unique: false
   }
 })
 
