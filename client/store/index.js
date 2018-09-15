@@ -5,7 +5,11 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import projects from './projects'
 import posts from './posts'
 
-const reducer = combineReducers({projects, posts})
+const reducer = combineReducers({
+    projects, 
+    posts
+  })
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

@@ -88,12 +88,12 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     setProjectsList: () => {
-      return  dispatch(getProjectsList())
-    },
+        return  dispatch(getProjectsList())
+      },
     setPostsList: () => {
-      return  dispatch(getPostsList())
-    }
- })
+        return  dispatch(getPostsList())
+      }
+  })
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)

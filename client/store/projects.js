@@ -26,10 +26,12 @@ export const getProjectsList = () => {
   }
 }
 
+
 //REDUCER
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_PROJECTS:
+      console.log('Projects reducer',action)
       return {...state, projectsList : action.projectsList}
     default:
       return state
