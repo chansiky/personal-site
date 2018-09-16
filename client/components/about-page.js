@@ -1,6 +1,8 @@
 import React from 'react'
 import {Emoji} from './index'
 
+//how did you get into programming
+
 const AboutPage = (props) => {
   return (
     <div>

@@ -7,6 +7,14 @@ import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
+/*
+things to include in about: things that let the other person know who you are:
+-book collection
+-everyday carry
+-experimentations, including eyesight
+*/
+
+
 const StyledSidebarDiv = styled.div`
   padding: 20px;
 `
