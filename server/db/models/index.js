@@ -1,5 +1,6 @@
 const Projects = require('./projects')
 const Posts = require('./posts')
+const PastWorks = require('./past-work')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -16,5 +17,6 @@ const Posts = require('./posts')
  */
 module.exports = {
   Projects,
-  Posts
+  Posts,
+  PastWorks
 }
