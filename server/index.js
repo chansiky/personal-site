@@ -28,7 +28,6 @@ if (process.env.NODE_ENV === 'test') {
  */
 if (process.env.NODE_ENV !== 'production') require('../secrets')
 
-
 //.listen(process.env.PORT || 5000)
 
 // passport registration
@@ -72,11 +71,12 @@ const createApp = () => {
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
+  // heroku path is:  /app/public
   console.log('heroku path is: ',path.join(__dirname, '..', 'public'))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
-    //console.log("req is : ", req)
+    console.log("req is : ", req)
     if (path.extname(req.path).length) {
       const err = new Error('Not found')
       err.status = 404
