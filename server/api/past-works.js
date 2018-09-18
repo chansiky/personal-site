@@ -1,15 +1,15 @@
-const router = require('express').router()
+const router = require('express').Router()
 const { PastWorks } = require('../db/models')
 
 router.use('/list', async (req,res,next) =>{
   try{
     const pastWorks = await PastWorks.findAll({
       raw: true,
-      attributes: {[
-        'id',
-        'title',
-        'url'
-      ]}
+      attributes: [
+      'id',
+      'title',
+      'url'
+      ]
     })
     res.json(pastWorks)
   }catch(e){

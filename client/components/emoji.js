@@ -35,6 +35,11 @@ class Emoji extends React.Component {
     this.changeEmoji()
   }
   
+  componentWillUnmount(){
+    
+  }
+
+
   changeEmoji(){
     this.setState({
       emoji: this.random(0, this.emojis.length)
