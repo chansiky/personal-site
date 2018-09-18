@@ -71,6 +71,8 @@ const createApp = () => {
 
   // static file-serving middleware
   app.use('/',express.static(path.join(__dirname, '..', 'public')))
+
+  app.use('/',express.static(path.join(__dirname, '..', 'public')))
   // heroku path is:  /app/public
   console.log('heroku path is: ',path.join(__dirname, '..', 'public'))
 
