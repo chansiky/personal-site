@@ -70,13 +70,15 @@ const createApp = () => {
   app.use('/api', require('./api'))
 
   // static file-serving middleware
-  app.use(express.static(path.join(__dirname, '..', 'public')))
+  app.use('/',express.static(path.join(__dirname, '..', 'public')))
   // heroku path is:  /app/public
   console.log('heroku path is: ',path.join(__dirname, '..', 'public'))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
-    console.log("req is : ", req)
+    console.log("req is : ", req.path)
+    console.log("path.extname(req.path) is" , path.extname( req.path ))
+
     if (path.extname(req.path).length) {
       const err = new Error('Not found')
       err.status = 404
