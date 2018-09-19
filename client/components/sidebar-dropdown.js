@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import {StyledLinkText} from '../style'
 
 const StyledSidebarDropdownDiv = styled.div`
   display: flex;
@@ -40,9 +41,9 @@ class SidebarDropdown extends React.Component{
                 variant="subheading" 
                 gutterBottom={true}
               > 
-                <a href={elem.url} target="_blank">
-                    {elem.title}
-                </a>
+                <StyledLinkText href={elem.url} target="_blank">
+                  {elem.title}
+                </StyledLinkText>
               </Typography>
           )
         })}

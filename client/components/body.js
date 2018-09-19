@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {Intro, AboutMe} from '../content'
 import {Button} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
+import {StyledLinkText, StyledReactRouterLink} from '../style'
 
 class Body extends React.Component{
   constructor(props){
@@ -19,7 +20,7 @@ class Body extends React.Component{
           Hey there.
         </h1>
         <p>
-Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I think React / Redux is amazing, I love <Link to="/vim">VIM</Link>.  I've also experimented with coding in C++17, Golang, and Ruby.
+Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I think React / Redux is amazing, I love <StyledReactRouterLink to="/vim">VIM</StyledReactRouterLink>.  I've also experimented with coding in C++17, Golang, and Ruby.
         </p>
         <br/>
         <Typography variant='subheading' >
@@ -27,24 +28,24 @@ Hi, I'm Chan Youn.  I'm a former architectural designer turned software develope
         </Typography>
 
         <p>
-          <a href="http://code-map.herokuapp.com">Code-Map</a>
+          <StyledLinkText href="http://code-map.herokuapp.com">Code-Map</StyledLinkText>
         </p>
         <p>
-          <a href="https://github.com/code-map/capstone-1804">Github</a>
-        </p>
-
-        <p>
-          <a href="http://eaglefox-shopper.herokuapp.com">EagleFox Shopper</a>
-        </p>
-        <p>
-          <a href="https://github.com/EagleFox-Grace-Shopper">Github</a>
+          <StyledLinkText href="https://github.com/code-map/capstone-1804">Github</StyledLinkText>
         </p>
 
         <p>
-          <a href="http://drawRTC.herokuapp.com">drawRTC</a>
+          <StyledLinkText href="http://eaglefox-shopper.herokuapp.com">EagleFox Shopper</StyledLinkText>
         </p>
         <p>
-          <a href="https://github.com/chansiky/chatterbox">Github</a>
+          <StyledLinkText href="https://github.com/EagleFox-Grace-Shopper">Github</StyledLinkText>
+        </p>
+
+        <p>
+          <StyledLinkText href="http://drawRTC.herokuapp.com">drawRTC</StyledLinkText>
+        </p>
+        <p>
+          <StyledLinkText href="https://github.com/chansiky/chatterbox">Github</StyledLinkText>
         </p>
       </div>
     )

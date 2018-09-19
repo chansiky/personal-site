@@ -302,6 +302,8 @@ var _core = __webpack_require__(/*! @material-ui/core */ "./node_modules/@materi
 
 var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js"));
 
+var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -342,21 +344,21 @@ function (_React$Component) {
   _createClass(Body, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Hey there."), _react.default.createElement("p", null, "Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I think React / Redux is amazing, I love ", _react.default.createElement(_reactRouterDom.Link, {
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Hey there."), _react.default.createElement("p", null, "Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I think React / Redux is amazing, I love ", _react.default.createElement(_style.StyledReactRouterLink, {
         to: "/vim"
       }, "VIM"), ".  I've also experimented with coding in C++17, Golang, and Ruby."), _react.default.createElement("br", null), _react.default.createElement(_Typography.default, {
         variant: "subheading"
-      }, "Check out a few of my projects!"), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "Check out a few of my projects!"), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "http://code-map.herokuapp.com"
-      }, "Code-Map")), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "Code-Map")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "https://github.com/code-map/capstone-1804"
-      }, "Github")), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "Github")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "http://eaglefox-shopper.herokuapp.com"
-      }, "EagleFox Shopper")), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "EagleFox Shopper")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "https://github.com/EagleFox-Grace-Shopper"
-      }, "Github")), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "Github")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "http://drawRTC.herokuapp.com"
-      }, "drawRTC")), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "drawRTC")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "https://github.com/chansiky/chatterbox"
       }, "Github")));
     }
@@ -673,6 +675,8 @@ var _Grid = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Gri
 
 var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js"));
 
+var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -767,7 +771,7 @@ function (_React$Component) {
           key: elem.id,
           variant: "subheading",
           gutterBottom: true
-        }, _react.default.createElement("a", {
+        }, _react.default.createElement(_style.StyledLinkText, {
           href: elem.url,
           target: "_blank"
         }, elem.title));
@@ -833,6 +837,8 @@ var _Grid = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Gri
 var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js"));
 
 var _Home = _interopRequireDefault(__webpack_require__(/*! @material-ui/icons/Home */ "./node_modules/@material-ui/icons/Home.js"));
+
+var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -967,7 +973,7 @@ function (_React$Component) {
       }, _react.default.createElement(StyledImg, {
         src: "ChanSikYounTheGreatestInTheWorld.jpg",
         alt: "Chan Youn, the greatest ever.(<--period)"
-      }), _react.default.createElement("br", null), _react.default.createElement("br", null)), _react.default.createElement(_reactRouterDom.Link, {
+      }), _react.default.createElement("br", null), _react.default.createElement("br", null)), _react.default.createElement(_style.StyledReactRouterLink, {
         to: '/'
       }, _react.default.createElement(_Home.default, null)), _react.default.createElement(_index.SidebarDropdown, {
         title: "Projects",
@@ -1676,6 +1682,173 @@ function _default() {
       return state;
   }
 }
+
+/***/ }),
+
+/***/ "./client/style/html5.js":
+/*!*******************************!*\
+  !*** ./client/style/html5.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledLinkText = void 0;
+
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  color: black;\n  text-decoration: underline;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StyledLinkText = _styledComponents.default.a(_templateObject());
+
+exports.StyledLinkText = StyledLinkText;
+
+/***/ }),
+
+/***/ "./client/style/index.js":
+/*!*******************************!*\
+  !*** ./client/style/index.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _materialUiComponents = __webpack_require__(/*! ./material-ui-components.js */ "./client/style/material-ui-components.js");
+
+Object.keys(_materialUiComponents).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _materialUiComponents[key];
+    }
+  });
+});
+
+var _html = __webpack_require__(/*! ./html5.js */ "./client/style/html5.js");
+
+Object.keys(_html).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _html[key];
+    }
+  });
+});
+
+var _react = __webpack_require__(/*! ./react.js */ "./client/style/react.js");
+
+Object.keys(_react).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _react[key];
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./client/style/material-ui-components.js":
+/*!************************************************!*\
+  !*** ./client/style/material-ui-components.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledSidebarTypographyTitle = void 0;
+
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js"));
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  background-color: yellow;\n  variant: \"title\";\n  gutterBottom: {true}\n  align: {'rught'};\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StyledSidebarTypographyTitle = (0, _styledComponents.default)(_Typography.default)(_templateObject());
+exports.StyledSidebarTypographyTitle = StyledSidebarTypographyTitle;
+
+/***/ }),
+
+/***/ "./client/style/react.js":
+/*!*******************************!*\
+  !*** ./client/style/react.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledReactRouterLink = void 0;
+
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  color: black;\n  text-decoration: underline;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StyledReactRouterLink = (0, _styledComponents.default)(_reactRouterDom.Link)(_templateObject());
+exports.StyledReactRouterLink = StyledReactRouterLink;
 
 /***/ }),
 

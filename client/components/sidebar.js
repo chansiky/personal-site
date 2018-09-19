@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import HomeIcon from '@material-ui/icons/Home';
+import {StyledReactRouterLink} from '../style'
 
 /*
 things to include in about: things that let the other person know who you are:
@@ -72,9 +73,9 @@ class Sidebar extends React.Component{
             <br/>
             <br/>
           </Link>
-          <Link to={'/'}>
+          <StyledReactRouterLink to={'/'}>
             <HomeIcon/>
-          </Link>
+          </StyledReactRouterLink>
           <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
           <SidebarDropdown  title='Posts'     content={this.props.postsList} />
           <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
