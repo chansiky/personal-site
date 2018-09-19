@@ -1,5 +1,6 @@
 import React from 'react'
 import {Emoji} from './index'
+import {StyledLinkText, StyledReactRouterLink} from '../style'
 
 //how did you get into programming
 
@@ -18,20 +19,20 @@ const VimPage = (props) => {
         For now, if you want to learn, I'd suggest using a VIM/style plugin for your browser to get accustomed to the motions.  For example:
       </p>
       <p>
-        <a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en" target="_blank">
+        <StyledLinkText href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en" target="_blank">
           Vimium for Chrome
-        </a>
+        </StyledLinkText>
       </p>
       <p>
-        <a href="https://chrome.google.com/webstore/detail/surfingkeys/gfbliohnnapiefjpjlpjnehglfpaknnc" target="_blank">
+        <StyledLinkText href="https://chrome.google.com/webstore/detail/surfingkeys/gfbliohnnapiefjpjlpjnehglfpaknnc" target="_blank">
           Surfing Keys for Chrome
-        </a>
+        </StyledLinkText>
       </p>
       <p>
         Oh and here are my VIM settings if you're curious: &nbsp;
-        <a href="https://github.com/chansiky/settings-vim/blob/master/init.vim" target="_blank">
+        <StyledLinkText href="https://github.com/chansiky/settings-vim/blob/master/init.vim" target="_blank">
           Settings for nVim
-        </a>
+        </StyledLinkText>
       </p>
     </div>
   )

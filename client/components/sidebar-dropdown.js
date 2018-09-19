@@ -49,7 +49,7 @@ class SidebarDropdown extends React.Component{
         })}
       </div> :
       <Typography 
-        variant="subheading" 
+        variant="caption" 
       > 
         no {this.props.title.toLowerCase()} in the database
       </Typography>       

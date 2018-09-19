@@ -2,6 +2,7 @@ import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import styled from 'styled-components'
+import { StyledLinkText } from './style'
 
 
 import {Navbar, Sidebar} from './components'
@@ -83,7 +84,11 @@ const App = () => {
             <StyledBottomMessage>
               <StyledBottomMessageColumn>
               <StyledBottomMessageText>
-                Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize
+                Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
+                <StyledLinkText href="https://github.com/chansiky/personal-site" target="_blank" >
+                  source
+                </StyledLinkText>
+ 
               </StyledBottomMessageText>  
               <StyledBottomMessageText>  
                 (Fancy graphics and updates under contruction, please be patient!)

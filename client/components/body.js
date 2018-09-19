@@ -27,12 +27,15 @@ Hi, I'm Chan Youn.  I'm a former architectural designer turned software develope
           Check out a few of my projects!
         </Typography>
 
+        <br/>
+
         <p>
           <StyledLinkText href="http://code-map.herokuapp.com">Code-Map</StyledLinkText>
         </p>
         <p>
           <StyledLinkText href="https://github.com/code-map/capstone-1804">Github</StyledLinkText>
         </p>
+        <br/>
 
         <p>
           <StyledLinkText href="http://eaglefox-shopper.herokuapp.com">EagleFox Shopper</StyledLinkText>
@@ -40,6 +43,8 @@ Hi, I'm Chan Youn.  I'm a former architectural designer turned software develope
         <p>
           <StyledLinkText href="https://github.com/EagleFox-Grace-Shopper">Github</StyledLinkText>
         </p>
+        <br/>
+
 
         <p>
           <StyledLinkText href="http://drawRTC.herokuapp.com">drawRTC</StyledLinkText>

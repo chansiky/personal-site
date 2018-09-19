@@ -109,6 +109,8 @@ var _Grid = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Gri
 
 var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
+var _style = __webpack_require__(/*! ./style */ "./client/style/index.js");
+
 var _components = __webpack_require__(/*! ./components */ "./client/components/index.js");
 
 var _routes = _interopRequireDefault(__webpack_require__(/*! ./routes */ "./client/routes.js"));
@@ -235,7 +237,10 @@ var App = function App() {
   }, _react.default.createElement(StyledSidebar, null)), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 6
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize"), _react.default.createElement(StyledBottomMessageText, null, "(Fancy graphics and updates under contruction, please be patient!)")))), _react.default.createElement(StyledGridItem, {
+  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0", _react.default.createElement(_style.StyledLinkText, {
+    href: "https://github.com/chansiky/personal-site",
+    target: "_blank"
+  }, "source")), _react.default.createElement(StyledBottomMessageText, null, "(Fancy graphics and updates under contruction, please be patient!)")))), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 3
   })))));
@@ -348,15 +353,15 @@ function (_React$Component) {
         to: "/vim"
       }, "VIM"), ".  I've also experimented with coding in C++17, Golang, and Ruby."), _react.default.createElement("br", null), _react.default.createElement(_Typography.default, {
         variant: "subheading"
-      }, "Check out a few of my projects!"), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
+      }, "Check out a few of my projects!"), _react.default.createElement("br", null), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "http://code-map.herokuapp.com"
       }, "Code-Map")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "https://github.com/code-map/capstone-1804"
-      }, "Github")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
+      }, "Github")), _react.default.createElement("br", null), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "http://eaglefox-shopper.herokuapp.com"
       }, "EagleFox Shopper")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "https://github.com/EagleFox-Grace-Shopper"
-      }, "Github")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
+      }, "Github")), _react.default.createElement("br", null), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "http://drawRTC.herokuapp.com"
       }, "drawRTC")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
         href: "https://github.com/chansiky/chatterbox"
@@ -776,7 +781,7 @@ function (_React$Component) {
           target: "_blank"
         }, elem.title));
       })) : _react.default.createElement(_Typography.default, {
-        variant: "subheading"
+        variant: "caption"
       }, "no ", this.props.title.toLowerCase(), " in the database");
       return _react.default.createElement(StyledSidebarDropdownDiv, null, _react.default.createElement(_Typography.default, {
         variant: "title",
@@ -975,7 +980,9 @@ function (_React$Component) {
         alt: "Chan Youn, the greatest ever.(<--period)"
       }), _react.default.createElement("br", null), _react.default.createElement("br", null)), _react.default.createElement(_style.StyledReactRouterLink, {
         to: '/'
-      }, _react.default.createElement(_Home.default, null)), _react.default.createElement(_index.SidebarDropdown, {
+      }, _react.default.createElement(_Home.default, {
+        alignItem: "center"
+      })), _react.default.createElement(_index.SidebarDropdown, {
         title: "Projects",
         content: this.props.projectsList
       }), _react.default.createElement(_index.SidebarDropdown, {
@@ -1151,17 +1158,19 @@ var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_mod
 
 var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
 
+var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //how did you get into programming
 var VimPage = function VimPage(props) {
-  return _react.default.createElement("div", null, _react.default.createElement(_index.Emoji, null), _react.default.createElement("h1", null, "I Love VIM!"), _react.default.createElement("p", null, "VIM is awesome.  Maybe I'll write an article on it when I have more time someday."), _react.default.createElement("p", null, "For now, if you want to learn, I'd suggest using a VIM/style plugin for your browser to get accustomed to the motions.  For example:"), _react.default.createElement("p", null, _react.default.createElement("a", {
+  return _react.default.createElement("div", null, _react.default.createElement(_index.Emoji, null), _react.default.createElement("h1", null, "I Love VIM!"), _react.default.createElement("p", null, "VIM is awesome.  Maybe I'll write an article on it when I have more time someday."), _react.default.createElement("p", null, "For now, if you want to learn, I'd suggest using a VIM/style plugin for your browser to get accustomed to the motions.  For example:"), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
     href: "https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en",
     target: "_blank"
-  }, "Vimium for Chrome")), _react.default.createElement("p", null, _react.default.createElement("a", {
+  }, "Vimium for Chrome")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
     href: "https://chrome.google.com/webstore/detail/surfingkeys/gfbliohnnapiefjpjlpjnehglfpaknnc",
     target: "_blank"
-  }, "Surfing Keys for Chrome")), _react.default.createElement("p", null, "Oh and here are my VIM settings if you're curious: \xA0", _react.default.createElement("a", {
+  }, "Surfing Keys for Chrome")), _react.default.createElement("p", null, "Oh and here are my VIM settings if you're curious: \xA0", _react.default.createElement(_style.StyledLinkText, {
     href: "https://github.com/chansiky/settings-vim/blob/master/init.vim",
     target: "_blank"
   }, "Settings for nVim")));
