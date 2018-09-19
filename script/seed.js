@@ -11,7 +11,7 @@ async function seed() {
     Posts.create({title: 'React-ing with the Elements', url: 'https://medium.com/@chansiky24/react-ing-with-the-elements-f10e867f022a', media: ''})
   ])
   const projects = await Promise.all([
-    Projects.create({title: 'Code-Map', media: 'Code-Map.jpg', description:'Code-Map is a tutorial aggregation engine for self-learners of Code', url:'www.code-map.herokuapp.com' , source: 'https://github.com/code-map/capstone-1804'}),
+    Projects.create({title: 'Code-Map', media: 'Code-Map.jpg', description:'Code-Map is a tutorial aggregation engine for self-learners of Code', url:'http://code-map.herokuapp.com/' , source: 'https://github.com/code-map/capstone-1804'}),
     Projects.create({title: 'EagleFox shopper', media: 'EagleFox-Shopper.jpg', description:'EagleFox Shopper is a point of sale application for "OCTAT" goods', url:'http://eaglefox-shopper.herokuapp.com' , source: 'https://github.com/EagleFox-Grace-Shopper/grace-shopper'})
   ])
 

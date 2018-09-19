@@ -14,7 +14,11 @@ const AboutPage = (props) => {
         So a little about myself, glad that you're interested.
       </p>
       <p>
-        I began coding when a friend introduced me to programming when I was in Grad School.
+        I began coding when a friend introduced me to programming when I was in Grad School...
+      </p>
+      <p>
+        Story will continue, promise, too busy studying/coding/sending out job applications! -_-
+
       </p>
     </div>
   )

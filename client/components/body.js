@@ -46,12 +46,6 @@ class Body extends React.Component{
         <p>
           <a href="https://github.com/chansiky/chatterbox">Github</a>
         </p>
-
-        <Link to={'/about'} >
-          <Typography variant='title' align='center'>
-            About me?
-          </Typography>
-        </Link>
       </div>
     )
   }

@@ -21,7 +21,7 @@ class SidebarDropdown extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      expanded : false
+      expanded : this.props.expanded || false
     }
     this.toggleExapand = this.toggleExpand.bind(this)
   }
@@ -35,13 +35,15 @@ class SidebarDropdown extends React.Component{
         {this.props.content.map((elem) => {
           console.log(elem)
           return(
-            <Typography 
-              key={elem.id} 
-              variant="subheading" 
-              gutterBottom={true}
-            > 
-              {elem.title}
-            </Typography>
+              <Typography 
+                key={elem.id} 
+                variant="subheading" 
+                gutterBottom={true}
+              > 
+                <a href={elem.url} target="_blank">
+                    {elem.title}
+                </a>
+              </Typography>
           )
         })}
       </div> :

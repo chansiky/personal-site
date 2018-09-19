@@ -6,6 +6,7 @@ import {getProjectsList, getPostsList} from '../store'
 import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import HomeIcon from '@material-ui/icons/Home';
 
 /*
 things to include in about: things that let the other person know who you are:
@@ -14,26 +15,43 @@ things to include in about: things that let the other person know who you are:
 -experimentations, including eyesight
 */
 
+const StyledColumnAlign = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`
 
 const StyledSidebarDiv = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  width: 7em;
 `
 const StyledImg = styled.img`
+  margin-top: 50px;
   width: 100%;
   maxWidth: 300px;
   height: auto;
 `
 
 class Sidebar extends React.Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      projects: [],
-      posts:  [],
-      pastWork: [],
+      contact: [{
+      id: 0,
+      title: "linkedIn",
+      url: "http://www.linkedin.com/in/chansiky"
+    },
+    {
+      id:1,
+      title: "github",
+      url: "http://www.github.com/chansiky"
+    }],
     }
   }
 
@@ -47,42 +65,27 @@ class Sidebar extends React.Component{
   render(){
     console.log(this.props)
     return(
-      <StyledSidebarDiv>
-        <Link to={'/'}>
-          <StyledImg src="ChanSikYounTheGreatestInTheWorld.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
-          <br/>
-          <br/>
-          <Typography variant='title' gutterBottom={true}>
-            Home
-          </Typography>
-        </Link>
-        <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
-        <SidebarDropdown  title='Posts'     content={this.props.postsList} />
-        <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
-        <Link to={`/about`}>
-          <Typography variant='title' gutterBottom={true}>
-            About
-          </Typography>
-        </Link>
-        <Typography variant='title' gutterBottom={true}>
-          Contact:
-        </Typography>
-        <Grid container>
-          <Grid item xs={1}/> 
-          <Grid item xs={10}> 
-            <a href="http://www.github.com/chansiky" target="_blank">
-              <Typography variant="subheading" gutterBottom={true} > 
-                github
-              </Typography>
-            </a>
-            <a href="http://www.linkedin.com/in/chansiky" target="_blank">
-              <Typography variant="subheading" gutterBottom={true}> 
-                linkedIn
-              </Typography>
-            </a>
-          </Grid>
-        </Grid>
-      </StyledSidebarDiv>
+      <StyledColumnAlign>
+        <StyledSidebarDiv>
+          <Link to={'/'}>
+            <StyledImg src="ChanSikYounTheGreatestInTheWorld.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+            <br/>
+            <br/>
+          </Link>
+          <Link to={'/'}>
+            <HomeIcon/>
+          </Link>
+          <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
+          <SidebarDropdown  title='Posts'     content={this.props.postsList} />
+          <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
+          <Link to={`/about`}>
+            <Typography variant='title' gutterBottom={true}>
+              About
+            </Typography>
+          </Link>
+          <SidebarDropdown  title='Contact'  content={this.state.contact} expanded={true} />
+        </StyledSidebarDiv>
+      </StyledColumnAlign>
     )
   }
 }
