@@ -16,11 +16,14 @@ things to include in about: things that let the other person know who you are:
 
 
 const StyledSidebarDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 20px;
 `
 const StyledImg = styled.img`
   width: 100%;
-  maxWidth: 500px;
+  maxWidth: 300px;
   height: auto;
 `
 
@@ -45,8 +48,6 @@ class Sidebar extends React.Component{
     console.log(this.props)
     return(
       <StyledSidebarDiv>
-          <br/>
-          <br/>
         <Link to={'/'}>
           <StyledImg src="ChanSikYounTheGreatestInTheWorld.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
           <br/>

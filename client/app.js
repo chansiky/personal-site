@@ -7,6 +7,13 @@ import styled from 'styled-components'
 import {Navbar, Sidebar} from './components'
 import Routes from './routes'
 
+
+const StyledApp = styled.div`
+  background-image: url("Grid10x10-Thin.png");
+  background-repeat: repeat;
+  background-size: 200px;
+`
+
 const StyledSidebar = styled(Sidebar)`
   padding: 50px;
 `
@@ -14,7 +21,6 @@ const StyledSidebar = styled(Sidebar)`
 const StyledGridContainer = styled(Grid)`
   flexDirection: column;
   justifyContent: flex-end;
-  
 `
 
 const StyledGridItem = styled(Grid)`
@@ -41,29 +47,31 @@ const styles = {
 
 const App = () => {
   return (
-    <div background-color='red'>
-      <StyledGridContainer container 
-      >
-        <CssBaseline />
-        <StyledGridItem item 
-          xs={3}
+    <StyledApp>
+      <div background-color='red'>
+        <StyledGridContainer container 
         >
-        </StyledGridItem>
-        <StyledGridItem item 
-          xs={6}
-        >
-          <StyledFrontpageDiv>
-            <Routes />
-          </StyledFrontpageDiv>
-        </StyledGridItem>
-        <StyledGridItem item 
-          xs={3}
-        >
-          <StyledSidebar
-          />
-        </StyledGridItem>
-      </StyledGridContainer>
-    </div>
+          <CssBaseline />
+          <StyledGridItem item 
+            xs={3}
+          >
+            <StyledSidebar
+            />
+          </StyledGridItem>
+          <StyledGridItem item 
+            xs={6}
+          >
+            <StyledFrontpageDiv>
+              <Routes />
+            </StyledFrontpageDiv>
+          </StyledGridItem>
+          <StyledGridItem item 
+            xs={3}
+          >
+          </StyledGridItem>
+        </StyledGridContainer>
+      </div>
+    </StyledApp>
   )
 }
 
