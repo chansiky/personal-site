@@ -69,7 +69,7 @@ class Sidebar extends React.Component{
       <StyledColumnAlign>
         <StyledSidebarDiv>
           <Link to={'/'}>
-            <StyledImg src="ChanSikYounTheGreatestInTheWorld.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+            <StyledImg src="ChanSikYoun-NavyPier.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
             <br/>
             <br/>
           </Link>
