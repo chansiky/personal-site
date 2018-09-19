@@ -9,9 +9,9 @@ import Routes from './routes'
 
 
 const StyledApp = styled.div`
-  background-image: url("Grid10x10-Thin.png");
+  background-image: url("DotGrid-5x5.png");
   background-repeat: repeat;
-  background-size: 200px;
+  background-size: 50px;
   height: 100vh;
 `
 

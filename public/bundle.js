@@ -186,7 +186,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background-image: url(\"Grid10x10-Thin.png\");\n  background-repeat: repeat;\n  background-size: 200px;\n  height: 100vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n  background-image: url(\"DotGrid-5x5.png\");\n  background-repeat: repeat;\n  background-size: 50px;\n  height: 100vh;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -342,11 +342,11 @@ function (_React$Component) {
   _createClass(Body, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Hey there."), _react.default.createElement("p", null, "Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I love React and Redux, I love love love ", _react.default.createElement(_reactRouterDom.Link, {
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Hey there."), _react.default.createElement("p", null, "Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I think React / Redux is amazing, I love ", _react.default.createElement(_reactRouterDom.Link, {
         to: "/vim"
       }, "VIM"), ".  I've also experimented with coding in C++17, Golang, and Ruby."), _react.default.createElement("br", null), _react.default.createElement(_Typography.default, {
         variant: "subheading"
-      }, "check out a few of my projects!"), _react.default.createElement("p", null, _react.default.createElement("a", {
+      }, "Check out a few of my projects!"), _react.default.createElement("p", null, _react.default.createElement("a", {
         href: "http://code-map.herokuapp.com"
       }, "Code-Map")), _react.default.createElement("p", null, _react.default.createElement("a", {
         href: "https://github.com/code-map/capstone-1804"
