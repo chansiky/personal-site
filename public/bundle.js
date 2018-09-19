@@ -237,10 +237,7 @@ var App = function App() {
   }, _react.default.createElement(StyledSidebar, null)), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 6
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0", _react.default.createElement(_style.StyledLinkText, {
-    href: "https://github.com/chansiky/personal-site",
-    target: "_blank"
-  }, "source")), _react.default.createElement(StyledBottomMessageText, null, "(Fancy graphics and updates under contruction, please be patient!)")))), _react.default.createElement(StyledGridItem, {
+  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 3
   })))));
@@ -976,7 +973,7 @@ function (_React$Component) {
       return _react.default.createElement(StyledColumnAlign, null, _react.default.createElement(StyledSidebarDiv, null, _react.default.createElement(_reactRouterDom.Link, {
         to: '/'
       }, _react.default.createElement(StyledImg, {
-        src: "ChanSikYounTheGreatestInTheWorld.jpg",
+        src: "ChanSikYoun-NavyPier.jpg",
         alt: "Chan Youn, the greatest ever.(<--period)"
       }), _react.default.createElement("br", null), _react.default.createElement("br", null)), _react.default.createElement(_style.StyledReactRouterLink, {
         to: '/'
