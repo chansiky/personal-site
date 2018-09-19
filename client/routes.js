@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {FrontPage, AboutPage} from './components'
+import {FrontPage, AboutPage, VimPage} from './components'
 
 /**
  * COMPONENT
@@ -17,6 +17,7 @@ class Routes extends Component {
       <div>
       <Switch>
         <Route path='/about' component={AboutPage} />
+        <Route path='/vim' component={VimPage} />
         <Route path='/' component={FrontPage} />
       </Switch>
       </div>

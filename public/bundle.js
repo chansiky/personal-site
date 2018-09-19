@@ -342,7 +342,9 @@ function (_React$Component) {
   _createClass(Body, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Hey there."), _react.default.createElement("p", null, _content.Intro), _react.default.createElement("br", null), _react.default.createElement(_Typography.default, {
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Hey there."), _react.default.createElement("p", null, "Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I love React and Redux, I love love love ", _react.default.createElement(_reactRouterDom.Link, {
+        to: "/vim"
+      }, "VIM"), ".  I've also experimented with coding in C++17, Golang, and Ruby."), _react.default.createElement("br", null), _react.default.createElement(_Typography.default, {
         variant: "subheading"
       }, "check out a few of my projects!"), _react.default.createElement("p", null, _react.default.createElement("a", {
         href: "http://code-map.herokuapp.com"
@@ -607,6 +609,12 @@ Object.defineProperty(exports, "AboutPage", {
     return _aboutPage.default;
   }
 });
+Object.defineProperty(exports, "VimPage", {
+  enumerable: true,
+  get: function get() {
+    return _vimPage.default;
+  }
+});
 Object.defineProperty(exports, "Emoji", {
   enumerable: true,
   get: function get() {
@@ -629,6 +637,8 @@ var _body = _interopRequireDefault(__webpack_require__(/*! ./body */ "./client/c
 var _frontPage = _interopRequireDefault(__webpack_require__(/*! ./front-page */ "./client/components/front-page.js"));
 
 var _aboutPage = _interopRequireDefault(__webpack_require__(/*! ./about-page */ "./client/components/about-page.js"));
+
+var _vimPage = _interopRequireDefault(__webpack_require__(/*! ./vim-page */ "./client/components/vim-page.js"));
 
 var _emoji = _interopRequireDefault(__webpack_require__(/*! ./emoji */ "./client/components/emoji.js"));
 
@@ -1116,6 +1126,46 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./client/components/vim-page.js":
+/*!***************************************!*\
+  !*** ./client/components/vim-page.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//how did you get into programming
+var VimPage = function VimPage(props) {
+  return _react.default.createElement("div", null, _react.default.createElement(_index.Emoji, null), _react.default.createElement("h1", null, "I Love VIM!"), _react.default.createElement("p", null, "VIM is awesome.  Maybe I'll write an article on it when I have more time someday."), _react.default.createElement("p", null, "For now, if you want to learn, I'd suggest using a VIM/style plugin for your browser to get accustomed to the motions.  For example:"), _react.default.createElement("p", null, _react.default.createElement("a", {
+    href: "https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en",
+    target: "_blank"
+  }, "Vimium for Chrome")), _react.default.createElement("p", null, _react.default.createElement("a", {
+    href: "https://chrome.google.com/webstore/detail/surfingkeys/gfbliohnnapiefjpjlpjnehglfpaknnc",
+    target: "_blank"
+  }, "Surfing Keys for Chrome")), _react.default.createElement("p", null, "Oh and here are my VIM settings if you're curious: \xA0", _react.default.createElement("a", {
+    href: "https://github.com/chansiky/settings-vim/blob/master/init.vim",
+    target: "_blank"
+  }, "Settings for nVim")));
+};
+
+var _default = VimPage;
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./client/content/index.js":
 /*!*********************************!*\
   !*** ./client/content/index.js ***!
@@ -1301,6 +1351,9 @@ function (_Component) {
       return _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
         path: "/about",
         component: _components.AboutPage
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/vim",
+        component: _components.VimPage
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/",
         component: _components.FrontPage

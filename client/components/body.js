@@ -19,7 +19,7 @@ class Body extends React.Component{
           Hey there.
         </h1>
         <p>
-          {Intro}
+Hi, I'm Chan Youn.  I'm a former architectural designer turned software developer.  I like programming in Javascript, Java, Python, and C#.  I love React and Redux, I love love love <Link to="/vim">VIM</Link>.  I've also experimented with coding in C++17, Golang, and Ruby.
         </p>
         <br/>
         <Typography variant='subheading' >
