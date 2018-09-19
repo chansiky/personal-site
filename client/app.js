@@ -85,13 +85,9 @@ const App = () => {
               <StyledBottomMessageColumn>
               <StyledBottomMessageText>
                 Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
-                <StyledLinkText href="https://github.com/chansiky/personal-site" target="_blank" >
-                  source
-                </StyledLinkText>
- 
               </StyledBottomMessageText>  
               <StyledBottomMessageText>  
-                (Fancy graphics and updates under contruction, please be patient!)
+                (I will update with fancy graphics soon, please be patient!)
               </StyledBottomMessageText>  
               </StyledBottomMessageColumn>
             </StyledBottomMessage>
