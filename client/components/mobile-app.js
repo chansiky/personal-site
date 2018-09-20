@@ -19,6 +19,7 @@ const StyledSidebar = styled(Sidebar)`
 const StyledGridContainer = styled(Grid)`
   flexDirection: column;
   justifyContent: flex-end;
+
 `
 
 const StyledGridItem = styled(Grid)`
@@ -30,15 +31,18 @@ const StyledFrontpageDiv = styled.div`
 const StyledBottomMessage = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 `
 const StyledBottomMessageColumn = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-self: center;
 `
 
 const StyledBottomMessageText = styled.div`
+  justify-content: center;
+  align-self: center;
   font-size: 11px;
 `
 
@@ -67,6 +71,9 @@ const MobileApp = (props) => {
            <StyledGridContainer container 
            >
              <CssBaseline />
+             <StyledGridItem item 
+               xs={12}
+             >
                <StyledFrontpageDiv>
                  <Routes />
                </StyledFrontpageDiv>
@@ -80,6 +87,7 @@ const MobileApp = (props) => {
                  </StyledBottomMessageText>  
                  </StyledBottomMessageColumn>
                </StyledBottomMessage>
+             </StyledGridItem>
            </StyledGridContainer>
            </div>
          </div>

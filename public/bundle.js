@@ -694,7 +694,7 @@ var _routes = _interopRequireDefault(__webpack_require__(/*! ../routes */ "./cli
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 11px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  justify-content: center;\n  align-self: center;\n  font-size: 11px;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -704,7 +704,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -714,7 +714,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -744,7 +744,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n"]);
+  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -808,7 +808,10 @@ var MobileApp = function MobileApp(props) {
     "background-color": "red"
   }, _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
     container: true
-  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)"))))))), " }");
+  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
+    item: true,
+    xs: 12
+  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))))))), " }");
 };
 
 var _default = MobileApp;
