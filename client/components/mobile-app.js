@@ -2,10 +2,8 @@ import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import styled from 'styled-components'
-import { StyledLinkText } from './style'
-import withWidth from'@material-ui/core/withWidth'
-import {Navbar, Sidebar, MobileApp} from './components'
-import Routes from './routes'
+import {Sidebar} from './index'
+import Routes from '../routes'
 
 const StyledApp = styled.div`
   background-image: url("DotGrid-5x5.png");
@@ -59,27 +57,16 @@ const styles = {
   }
 }
 
-const App = (props) => {
+const MobileApp = (props) => {
   console.log('App props are: ',props)
   return (
     <div>
-    {(props.width === 'sm' || props.width === 'xs') ?
-       <MobileApp/> :
        <StyledApp>
          <div background-color='red'>
            <div>
            <StyledGridContainer container 
            >
              <CssBaseline />
-             <StyledGridItem item 
-               xs={3}
-             >
-               <StyledSidebar
-               />
-             </StyledGridItem>
-             <StyledGridItem item 
-               xs={6}
-             >
                <StyledFrontpageDiv>
                  <Routes />
                </StyledFrontpageDiv>
@@ -93,11 +80,6 @@ const App = (props) => {
                  </StyledBottomMessageText>  
                  </StyledBottomMessageColumn>
                </StyledBottomMessage>
-             </StyledGridItem>
-             <StyledGridItem item 
-               xs={3}
-             >
-             </StyledGridItem>
            </StyledGridContainer>
            </div>
          </div>
@@ -107,4 +89,4 @@ const App = (props) => {
 }
 
 
-export default withWidth()(App);
+export default MobileApp
