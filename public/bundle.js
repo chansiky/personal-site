@@ -201,6 +201,10 @@ var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/co
 
 var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
 
+var _store = __webpack_require__(/*! ../store */ "./client/store/index.js");
+
+var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -245,19 +249,7 @@ function (_React$Component) {
         to: "/vim"
       }, "VIM"), ".  I've also experimented with coding in C++17, Golang, and Ruby."), _react.default.createElement("br", null), _react.default.createElement(_Typography.default, {
         variant: "subheading"
-      }, "Check out a few of my projects!"), _react.default.createElement("br", null), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
-        href: "http://code-map.herokuapp.com"
-      }, "Code-Map")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
-        href: "https://github.com/code-map/capstone-1804"
-      }, "Github")), _react.default.createElement("br", null), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
-        href: "http://eaglefox-shopper.herokuapp.com"
-      }, "EagleFox Shopper")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
-        href: "https://github.com/EagleFox-Grace-Shopper"
-      }, "Github")), _react.default.createElement("br", null), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
-        href: "http://drawRTC.herokuapp.com"
-      }, "drawRTC")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
-        href: "https://github.com/chansiky/chatterbox"
-      }, "Github")));
+      }, "Check out a few of my projects:"), _react.default.createElement("br", null), _react.default.createElement("br", null), _react.default.createElement(_index.ProjectsCardList, null));
     }
   }]);
 
@@ -538,6 +530,18 @@ Object.defineProperty(exports, "WebApp", {
     return _webApp.default;
   }
 });
+Object.defineProperty(exports, "MediaCard", {
+  enumerable: true,
+  get: function get() {
+    return _mediaCard.default;
+  }
+});
+Object.defineProperty(exports, "ProjectsCardList", {
+  enumerable: true,
+  get: function get() {
+    return _projectsCardList.default;
+  }
+});
 
 var _sidebar = _interopRequireDefault(__webpack_require__(/*! ./sidebar */ "./client/components/sidebar.js"));
 
@@ -559,7 +563,142 @@ var _mobileApp = _interopRequireDefault(__webpack_require__(/*! ./mobile-app */ 
 
 var _webApp = _interopRequireDefault(__webpack_require__(/*! ./web-app */ "./client/components/web-app.js"));
 
+var _mediaCard = _interopRequireDefault(__webpack_require__(/*! ./media-card */ "./client/components/media-card.js"));
+
+var _projectsCardList = _interopRequireDefault(__webpack_require__(/*! ./projects-card-list */ "./client/components/projects-card-list.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ "./client/components/media-card.js":
+/*!*****************************************!*\
+  !*** ./client/components/media-card.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _styles = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+
+var _Card = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/Card/index.js"));
+
+var _CardActionArea = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/CardActionArea */ "./node_modules/@material-ui/core/CardActionArea/index.js"));
+
+var _CardActions = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/CardActions */ "./node_modules/@material-ui/core/CardActions/index.js"));
+
+var _CardContent = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/CardContent/index.js"));
+
+var _CardMedia = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/CardMedia */ "./node_modules/@material-ui/core/CardMedia/index.js"));
+
+var _Button = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/Button/index.js"));
+
+var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js"));
+
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  height: auto;\n  width: auto;\n  max-height: 80px;\n  max-width: 200px;\n  border: 2px solid black;\n  border-radius: 4px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  padding-left: 20px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  height: 80px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var styles = {
+  card: {
+    maxWidth: 800
+  },
+  media: {
+    height: 140
+  }
+};
+
+var StyledCard = _styledComponents.default.div(_templateObject());
+
+var StyledCardSideText = _styledComponents.default.div(_templateObject2());
+
+var StyledImg = _styledComponents.default.img(_templateObject3());
+
+function MediaCard(props) {
+  var classes = props.classes;
+  return _react.default.createElement("div", null, _react.default.createElement(StyledCard, null, _react.default.createElement("a", {
+    href: props.url
+  }, _react.default.createElement(StyledImg, {
+    src: props.image
+  })), _react.default.createElement(StyledCardSideText, null, _react.default.createElement(_Typography.default, {
+    variant: "title"
+  }, props.title), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
+    href: props.source
+  }, "Github")))));
+}
+
+MediaCard.propTypes = {
+  classes: _propTypes.default.object.isRequired
+};
+
+var _default = (0, _styles.withStyles)(styles)(MediaCard);
+/*
+      <Card className={classes.card}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            src={props.image}
+            title={props.title}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="headline" component="h2">
+              {props.title}
+            </Typography>
+            <Typography component="p">
+              {props.description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+*/
+
+
+exports.default = _default;
 
 /***/ }),
 
@@ -703,6 +842,129 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./client/components/projects-card-list.js":
+/*!*************************************************!*\
+  !*** ./client/components/projects-card-list.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
+
+var _store = __webpack_require__(/*! ../store */ "./client/store/index.js");
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ProjectsCardList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ProjectsCardList, _React$Component);
+
+  function ProjectsCardList(props) {
+    _classCallCheck(this, ProjectsCardList);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ProjectsCardList).call(this, props));
+  }
+
+  _createClass(ProjectsCardList, [{
+    key: "componentDidMount",
+    value: function () {
+      var _componentDidMount = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.props.setProjectsAll();
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
+      };
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      return _react.default.createElement("div", null, this.props.projectsAll.map(function (elem) {
+        return _react.default.createElement("div", null, _react.default.createElement(_index.MediaCard, {
+          key: elem.id,
+          title: elem.title,
+          image: elem.media,
+          descripion: elem.description,
+          source: elem.source,
+          url: elem.url
+        }), _react.default.createElement("br", null));
+      }));
+    }
+  }]);
+
+  return ProjectsCardList;
+}(_react.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    projectsAll: store.projects.projectsAll
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    setProjectsAll: function setProjectsAll() {
+      return dispatch((0, _store.getProjectsAll)());
+    }
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ProjectsCardList);
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./client/components/sidebar-dropdown.js":
 /*!***********************************************!*\
   !*** ./client/components/sidebar-dropdown.js ***!
@@ -819,7 +1081,6 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var list = this.props.content && this.props.content.length > 0 ? _react.default.createElement("div", null, this.props.content.map(function (elem) {
-        console.log(elem);
         return _react.default.createElement(_Typography.default, {
           key: elem.id,
           variant: "subheading",
@@ -996,16 +1257,14 @@ function (_React$Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log('setting Projects list');
-                _context.next = 3;
+                _context.next = 2;
                 return this.props.setProjectsList();
 
-              case 3:
-                console.log('setting Posts list');
-                _context.next = 6;
+              case 2:
+                _context.next = 4;
                 return this.props.setPostsList();
 
-              case 6:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -1368,7 +1627,9 @@ var WebApp = function WebApp(props) {
   }, _react.default.createElement(StyledSidebar, null)), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 6
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))), _react.default.createElement(StyledGridItem, {
+  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0", _react.default.createElement(_style.StyledLinkText, {
+    href: "https://github.com/chansiky/personal-site"
+  }, "source")), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 3
   })))));
@@ -1799,7 +2060,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = _default;
-exports.getProjectsList = void 0;
+exports.getProjectsAll = exports.getProjectsList = void 0;
 
 var _axios = _interopRequireDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
@@ -1814,10 +2075,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 //ACTION TYPES
-var SET_PROJECTS = 'SET_PROJECTS'; //INITIAL STATE
+var SET_PROJECTS = 'SET_PROJECTS';
+var SET_PROJECTS_ALL = 'SET_PROJECTS_ALL'; //INITIAL STATE
 
 var initialState = {
-  projectsList: [] //ACTION CREATORS
+  projectsList: [],
+  projectsAll: [] //ACTION CREATORS
 
 };
 
@@ -1825,6 +2088,13 @@ var setProjectsList = function setProjectsList(projectsList) {
   return {
     type: SET_PROJECTS,
     projectsList: projectsList
+  };
+};
+
+var setProjectsAll = function setProjectsAll(projectsAll) {
+  return {
+    type: SET_PROJECTS_ALL,
+    projectsAll: projectsAll
   };
 }; //THUNK CREATORS
 
@@ -1869,10 +2139,54 @@ var getProjectsList = function getProjectsList() {
       };
     }()
   );
+};
+
+exports.getProjectsList = getProjectsList;
+
+var getProjectsAll = function getProjectsAll() {
+  return (
+    /*#__PURE__*/
+    function () {
+      var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2(dispatch) {
+        var res;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _axios.default.get("api/projects/all/");
+
+              case 3:
+                res = _context2.sent;
+                dispatch(setProjectsAll(res.data));
+                _context2.next = 10;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.error(_context2.t0);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 7]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }()
+  );
 }; //REDUCER
 
 
-exports.getProjectsList = getProjectsList;
+exports.getProjectsAll = getProjectsAll;
 
 function _default() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -1880,9 +2194,13 @@ function _default() {
 
   switch (action.type) {
     case SET_PROJECTS:
-      console.log('Projects reducer', action);
       return _objectSpread({}, state, {
         projectsList: action.projectsList
+      });
+
+    case SET_PROJECTS_ALL:
+      return _objectSpread({}, state, {
+        projectsAll: action.projectsAll
       });
 
     default:
@@ -1912,7 +2230,7 @@ var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-co
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  color: black;\n  text-decoration: underline;\n"]);
+  var data = _taggedTemplateLiteral(["\n  color: black;\n  text-decoration: underline;\n  cursor: pointer;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2043,7 +2361,7 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  color: black;\n  text-decoration: underline;\n"]);
+  var data = _taggedTemplateLiteral(["\n  color: black;\n  text-decoration: underline;\n  cursor: pointer;\n"]);
 
   _templateObject = function _templateObject() {
     return data;

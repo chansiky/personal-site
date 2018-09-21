@@ -4,6 +4,8 @@ import {Intro, AboutMe} from '../content'
 import {Button} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import {StyledLinkText, StyledReactRouterLink} from '../style'
+import {getProjectsAll} from '../store' 
+import {ProjectsCardList} from './index'
 
 class Body extends React.Component{
   constructor(props){
@@ -24,34 +26,14 @@ Hi, I'm Chan Youn.  I'm a former architectural designer turned software develope
         </p>
         <br/>
         <Typography variant='subheading' >
-          Check out a few of my projects!
+          Check out a few of my projects:
         </Typography>
 
         <br/>
-
-        <p>
-          <StyledLinkText href="http://code-map.herokuapp.com">Code-Map</StyledLinkText>
-        </p>
-        <p>
-          <StyledLinkText href="https://github.com/code-map/capstone-1804">Github</StyledLinkText>
-        </p>
         <br/>
 
-        <p>
-          <StyledLinkText href="http://eaglefox-shopper.herokuapp.com">EagleFox Shopper</StyledLinkText>
-        </p>
-        <p>
-          <StyledLinkText href="https://github.com/EagleFox-Grace-Shopper">Github</StyledLinkText>
-        </p>
-        <br/>
-
-
-        <p>
-          <StyledLinkText href="http://drawRTC.herokuapp.com">drawRTC</StyledLinkText>
-        </p>
-        <p>
-          <StyledLinkText href="https://github.com/chansiky/chatterbox">Github</StyledLinkText>
-        </p>
+        <ProjectsCardList />
+ 
       </div>
     )
   }

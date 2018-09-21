@@ -13,4 +13,15 @@ router.get('/list', async (req,res,next) => {
   }
 })
 
+router.get('/all', async (req,res,next) => {
+  try{
+    const projects = await Projects.findAll({
+      raw: true,
+    })
+    res.json(projects)
+  }catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

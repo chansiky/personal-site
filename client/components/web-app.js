@@ -76,6 +76,9 @@ const WebApp = (props) => {
               <StyledBottomMessageColumn>
               <StyledBottomMessageText>
                 Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
+                <StyledLinkText href='https://github.com/chansiky/personal-site'>
+                  source
+                </StyledLinkText>
               </StyledBottomMessageText>  
               <StyledBottomMessageText>  
                 (I will update with fancy graphics soon, please be patient!)
