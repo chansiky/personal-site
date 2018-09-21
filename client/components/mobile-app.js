@@ -5,13 +5,6 @@ import styled from 'styled-components'
 import {Sidebar} from './index'
 import Routes from '../routes'
 
-const StyledApp = styled.div`
-  background-image: url("DotGrid-5x5.png");
-  background-repeat: repeat;
-  background-size: 50px;
-  height: 100vh;
-`
-
 const StyledSidebar = styled(Sidebar)`
   padding: 50px;
 `
@@ -62,36 +55,33 @@ const styles = {
 }
 
 const MobileApp = (props) => {
-  console.log('App props are: ',props)
   return (
     <div>
-       <StyledApp>
-         <div background-color='red'>
-           <div>
-           <StyledGridContainer container 
+       <div>
+         <div>
+         <StyledGridContainer container 
+         >
+           <CssBaseline />
+           <StyledGridItem item 
+             xs={12}
            >
-             <CssBaseline />
-             <StyledGridItem item 
-               xs={12}
-             >
-               <StyledFrontpageDiv>
-                 <Routes />
-               </StyledFrontpageDiv>
-               <StyledBottomMessage>
-                 <StyledBottomMessageColumn>
-                 <StyledBottomMessageText>
-                   Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
-                 </StyledBottomMessageText>  
-                 <StyledBottomMessageText>  
-                   (I will update with fancy graphics soon, please be patient!)
-                 </StyledBottomMessageText>  
-                 </StyledBottomMessageColumn>
-               </StyledBottomMessage>
-             </StyledGridItem>
-           </StyledGridContainer>
-           </div>
+             <StyledFrontpageDiv>
+               <Routes />
+             </StyledFrontpageDiv>
+             <StyledBottomMessage>
+               <StyledBottomMessageColumn>
+               <StyledBottomMessageText>
+                 Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
+               </StyledBottomMessageText>  
+               <StyledBottomMessageText>  
+                 (I will update with fancy graphics soon, please be patient!)
+               </StyledBottomMessageText>  
+               </StyledBottomMessageColumn>
+             </StyledBottomMessage>
+           </StyledGridItem>
+         </StyledGridContainer>
          </div>
-       </StyledApp> }
+       </div>
     </div>
   )
 }

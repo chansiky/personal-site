@@ -119,78 +119,8 @@ var _routes = _interopRequireDefault(__webpack_require__(/*! ./routes */ "./clie
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 11px;\n"]);
-
-  _templateObject8 = function _templateObject8() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
-
-  _templateObject7 = function _templateObject7() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n"]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background-image: url(\"DotGrid-5x5.png\");\n  background-repeat: repeat;\n  background-size: 50px;\n  height: 100vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n  background-image: url(\"DotGrid-5x5.png\");\n  background-repeat: repeat;\n  background-size: 50px;\n  height: 120vh;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -203,47 +133,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var StyledApp = _styledComponents.default.div(_templateObject());
 
-var StyledSidebar = (0, _styledComponents.default)(_components.Sidebar)(_templateObject2());
-var StyledGridContainer = (0, _styledComponents.default)(_Grid.default)(_templateObject3());
-var StyledGridItem = (0, _styledComponents.default)(_Grid.default)(_templateObject4());
-
-var StyledFrontpageDiv = _styledComponents.default.div(_templateObject5());
-
-var StyledBottomMessage = _styledComponents.default.div(_templateObject6());
-
-var StyledBottomMessageColumn = _styledComponents.default.div(_templateObject7());
-
-var StyledBottomMessageText = _styledComponents.default.div(_templateObject8());
-
-var styles = {
-  container: {
-    justifyContent: 'flex-end',
-    flexDirection: 'column',
-    backgroundColor: 'gold'
-  },
-  sidebar: {
-    padding: '20px',
-    backgroundColor: 'magenta'
-  },
-  main: {}
-};
-
 var App = function App(props) {
-  console.log('App props are: ', props);
-  return _react.default.createElement("div", null, props.width === 'sm' || props.width === 'xs' ? _react.default.createElement(_components.MobileApp, null) : _react.default.createElement(StyledApp, null, _react.default.createElement("div", {
-    "background-color": "red"
-  }, _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
-    container: true
-  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
-    item: true,
-    xs: 3
-  }, _react.default.createElement(StyledSidebar, null)), _react.default.createElement(StyledGridItem, {
-    item: true,
-    xs: 6
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))), _react.default.createElement(StyledGridItem, {
-    item: true,
-    xs: 3
-  }))))));
+  return _react.default.createElement("div", null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledApp, null, props.width === 'sm' || props.width === 'xs' ? _react.default.createElement(_components.MobileApp, null) : _react.default.createElement(_components.WebApp, null)));
 };
 
 var _default = (0, _withWidth.default)()(App);
@@ -641,6 +532,12 @@ Object.defineProperty(exports, "MobileApp", {
     return _mobileApp.default;
   }
 });
+Object.defineProperty(exports, "WebApp", {
+  enumerable: true,
+  get: function get() {
+    return _webApp.default;
+  }
+});
 
 var _sidebar = _interopRequireDefault(__webpack_require__(/*! ./sidebar */ "./client/components/sidebar.js"));
 
@@ -659,6 +556,8 @@ var _emoji = _interopRequireDefault(__webpack_require__(/*! ./emoji */ "./client
 var _sidebarDropdown = _interopRequireDefault(__webpack_require__(/*! ./sidebar-dropdown */ "./client/components/sidebar-dropdown.js"));
 
 var _mobileApp = _interopRequireDefault(__webpack_require__(/*! ./mobile-app */ "./client/components/mobile-app.js"));
+
+var _webApp = _interopRequireDefault(__webpack_require__(/*! ./web-app */ "./client/components/web-app.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -693,18 +592,8 @@ var _routes = _interopRequireDefault(__webpack_require__(/*! ../routes */ "./cli
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  justify-content: center;\n  align-self: center;\n  font-size: 11px;\n"]);
-
-  _templateObject8 = function _templateObject8() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n  justify-content: center;\n  align-self: center;\n  font-size: 11px;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -714,7 +603,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -724,7 +613,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -734,7 +623,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n"]);
+  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -744,7 +633,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n\n"]);
+  var data = _taggedTemplateLiteral(["\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -754,7 +643,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -764,7 +653,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background-image: url(\"DotGrid-5x5.png\");\n  background-repeat: repeat;\n  background-size: 50px;\n  height: 100vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -775,19 +664,17 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var StyledApp = _styledComponents.default.div(_templateObject());
+var StyledSidebar = (0, _styledComponents.default)(_index.Sidebar)(_templateObject());
+var StyledGridContainer = (0, _styledComponents.default)(_Grid.default)(_templateObject2());
+var StyledGridItem = (0, _styledComponents.default)(_Grid.default)(_templateObject3());
 
-var StyledSidebar = (0, _styledComponents.default)(_index.Sidebar)(_templateObject2());
-var StyledGridContainer = (0, _styledComponents.default)(_Grid.default)(_templateObject3());
-var StyledGridItem = (0, _styledComponents.default)(_Grid.default)(_templateObject4());
+var StyledFrontpageDiv = _styledComponents.default.div(_templateObject4());
 
-var StyledFrontpageDiv = _styledComponents.default.div(_templateObject5());
+var StyledBottomMessage = _styledComponents.default.div(_templateObject5());
 
-var StyledBottomMessage = _styledComponents.default.div(_templateObject6());
+var StyledBottomMessageColumn = _styledComponents.default.div(_templateObject6());
 
-var StyledBottomMessageColumn = _styledComponents.default.div(_templateObject7());
-
-var StyledBottomMessageText = _styledComponents.default.div(_templateObject8());
+var StyledBottomMessageText = _styledComponents.default.div(_templateObject7());
 
 var styles = {
   container: {
@@ -803,15 +690,12 @@ var styles = {
 };
 
 var MobileApp = function MobileApp(props) {
-  console.log('App props are: ', props);
-  return _react.default.createElement("div", null, _react.default.createElement(StyledApp, null, _react.default.createElement("div", {
-    "background-color": "red"
-  }, _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
+  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
     container: true
   }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 12
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))))))), " }");
+  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)"))))))));
 };
 
 var _default = MobileApp;
@@ -1341,6 +1225,156 @@ var VimPage = function VimPage(props) {
 };
 
 var _default = VimPage;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./client/components/web-app.js":
+/*!**************************************!*\
+  !*** ./client/components/web-app.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _CssBaseline = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/CssBaseline/index.js"));
+
+var _Grid = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/Grid/index.js"));
+
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
+var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
+
+var _withWidth = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/withWidth */ "./node_modules/@material-ui/core/withWidth/index.js"));
+
+var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
+
+var _routes = _interopRequireDefault(__webpack_require__(/*! ../routes */ "./client/routes.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n  font-size: 11px;\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  padding: 50px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StyledSidebar = (0, _styledComponents.default)(_index.Sidebar)(_templateObject());
+var StyledGridContainer = (0, _styledComponents.default)(_Grid.default)(_templateObject2());
+var StyledGridItem = (0, _styledComponents.default)(_Grid.default)(_templateObject3());
+
+var StyledFrontpageDiv = _styledComponents.default.div(_templateObject4());
+
+var StyledBottomMessage = _styledComponents.default.div(_templateObject5());
+
+var StyledBottomMessageColumn = _styledComponents.default.div(_templateObject6());
+
+var StyledBottomMessageText = _styledComponents.default.div(_templateObject7());
+
+var styles = {
+  container: {
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
+    backgroundColor: 'gold'
+  },
+  sidebar: {
+    padding: '20px',
+    backgroundColor: 'magenta'
+  },
+  main: {}
+};
+
+var WebApp = function WebApp(props) {
+  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
+    container: true
+  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
+    item: true,
+    xs: 3
+  }, _react.default.createElement(StyledSidebar, null)), _react.default.createElement(StyledGridItem, {
+    item: true,
+    xs: 6
+  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))), _react.default.createElement(StyledGridItem, {
+    item: true,
+    xs: 3
+  })))));
+};
+
+var _default = WebApp;
 exports.default = _default;
 
 /***/ }),
