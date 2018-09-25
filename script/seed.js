@@ -11,9 +11,24 @@ async function seed() {
     Posts.create({title: 'React-ing with the Elements', url: 'https://medium.com/@chansiky24/react-ing-with-the-elements-f10e867f022a', media: ''})
   ])
   const projects = await Promise.all([
-    Projects.create({title: 'Code-Map', media: 'code-map-2.png', description:'Code-Map is a tutorial aggregation engine for self-learners of Code', url:'http://code-map.herokuapp.com/' , source: 'https://github.com/code-map/capstone-1804'}),
-    Projects.create({title: 'EagleFox shopper', media: 'eaglefox-1.png', description:'EagleFox Shopper is a point of sale application for "OCTAT" goods', url:'http://eaglefox-shopper.herokuapp.com' , source: 'https://github.com/EagleFox-Grace-Shopper/grace-shopper'}),
-    Projects.create({title: 'drawRTC', media: 'draw-1.png', description:'drawRTC is a peer to peer drawing application', url:'https://drawRTC.herokuapp.com' , source: 'https://github.com/chansiky/chatterbox'})
+    Projects.create({
+      title: 'Code-Map', 
+      media: 'code-map-2.png', 
+      description:'Code-Map is a tutorial aggregation engine for self-learners of Code', 
+      siteURL:'http://code-map.herokuapp.com/' ,  
+      gitURL: 'https://github.com/code-map/capstone-1804'}),
+    Projects.create({
+      title: 'EagleFox shopper', 
+      media: 'eaglefox-1.png', 
+      description:'EagleFox Shopper is a point of sale application for "OCTAT" goods', 
+      siteURL:'http://eaglefox-shopper.herokuapp.com' , 
+      gitURL: 'https://github.com/EagleFox-Grace-Shopper/grace-shopper'}),
+    Projects.create({
+      title: 'drawRTC', 
+      media: 'draw-1.png', 
+      description:'drawRTC is a peer to peer drawing application', 
+      siteURL:'www.youtube.com/watch/JdWDA_HOnKk' , 
+      gitURL: 'https://github.com/chansiky/chatterbox'})
   ])
 
   console.log(`seeded ${posts.length} posts`)
