@@ -120,7 +120,7 @@ var _routes = _interopRequireDefault(__webpack_require__(/*! ./routes */ "./clie
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background-image: url(\"DotGrid-5x5.png\");\n  background-repeat: repeat;\n  background-size: 50px;\n  height: 120vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n  background-image: url(\"DotGrid-5x5.png\");\n  background-repeat: repeat;\n  background-size: 50px;\n  height: 140vh;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -170,6 +170,124 @@ var AboutPage = function AboutPage(props) {
 };
 
 var _default = AboutPage;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./client/components/app-bar.js":
+/*!**************************************!*\
+  !*** ./client/components/app-bar.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _styles = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+
+var _AppBar = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/AppBar */ "./node_modules/@material-ui/core/AppBar/index.js"));
+
+var _Toolbar = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/Toolbar/index.js"));
+
+var _Typography = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js"));
+
+var _IconButton = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/IconButton/index.js"));
+
+var _Menu = _interopRequireDefault(__webpack_require__(/*! @material-ui/icons/Menu */ "./node_modules/@material-ui/icons/Menu.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+var styles = {
+  root: {
+    flexGrow: 1
+  },
+  grow: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20
+  }
+};
+
+var SimpleAppBar =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SimpleAppBar, _React$Component);
+
+  function SimpleAppBar(props) {
+    var _this;
+
+    _classCallCheck(this, SimpleAppBar);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SimpleAppBar).call(this, props));
+    _this.handleMenuClick = _this.handleMenuClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(SimpleAppBar, [{
+    key: "handleMenuClick",
+    value: function handleMenuClick() {
+      console.log("hello everybody");
+    }
+  }, {
+    key: "render",
+    value: function render(props) {
+      var classes = this.props.classes;
+      return _react.default.createElement("div", {
+        className: classes.root
+      }, _react.default.createElement(_AppBar.default, {
+        position: "sticky",
+        color: "default"
+      }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_IconButton.default, {
+        onClick: this.handleMenuClick,
+        className: classes.menuButton,
+        color: "inherit",
+        "aria-label": "Menu"
+      }, _react.default.createElement(_Menu.default, null)), _react.default.createElement(_Typography.default, {
+        variant: "title",
+        color: "inherit"
+      }, "Chan-sik Youn Portfolio"))));
+    }
+  }]);
+
+  return SimpleAppBar;
+}(_react.default.Component);
+
+SimpleAppBar.propTypes = {
+  classes: _propTypes.default.object.isRequired
+};
+
+var _default = (0, _styles.withStyles)(styles)(SimpleAppBar);
+
 exports.default = _default;
 
 /***/ }),
@@ -314,6 +432,8 @@ function (_React$Component) {
       emoji: 0
     };
     _this.changeEmoji = _this.changeEmoji.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.changeEmojiNormal = _this.changeEmojiNormal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.timeoutID = undefined;
     return _this;
   }
 
@@ -327,7 +447,13 @@ function (_React$Component) {
     }
   }, {
     key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
+    value: function componentWillUnmount() {
+      if (this.timeoutID) {
+        clearTimeout(this.timeoutID);
+      }
+
+      this.timeoutID = undefined;
+    }
   }, {
     key: "changeEmoji",
     value: function changeEmoji() {
@@ -336,7 +462,7 @@ function (_React$Component) {
       this.setState({
         emoji: this.random(0, this.emojis.length)
       });
-      setTimeout(function () {
+      this.timeoutID = setTimeout(function () {
         _this2.changeEmojiNormal();
       }, this.random(600, 1000));
     }
@@ -348,7 +474,7 @@ function (_React$Component) {
       this.setState({
         emoji: 0
       });
-      setTimeout(function () {
+      this.timeoutID = setTimeout(function () {
         _this3.changeEmoji();
       }, this.random(4000, 6000));
     }
@@ -536,6 +662,12 @@ Object.defineProperty(exports, "MediaCard", {
     return _mediaCard.default;
   }
 });
+Object.defineProperty(exports, "SimpleAppBar", {
+  enumerable: true,
+  get: function get() {
+    return _appBar.default;
+  }
+});
 Object.defineProperty(exports, "ProjectsCardList", {
   enumerable: true,
   get: function get() {
@@ -564,6 +696,8 @@ var _mobileApp = _interopRequireDefault(__webpack_require__(/*! ./mobile-app */ 
 var _webApp = _interopRequireDefault(__webpack_require__(/*! ./web-app */ "./client/components/web-app.js"));
 
 var _mediaCard = _interopRequireDefault(__webpack_require__(/*! ./media-card */ "./client/components/media-card.js"));
+
+var _appBar = _interopRequireDefault(__webpack_require__(/*! ./app-bar */ "./client/components/app-bar.js"));
 
 var _projectsCardList = _interopRequireDefault(__webpack_require__(/*! ./projects-card-list */ "./client/components/projects-card-list.js"));
 
@@ -731,6 +865,24 @@ var _routes = _interopRequireDefault(__webpack_require__(/*! ../routes */ "./cli
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 function _templateObject7() {
   var data = _taggedTemplateLiteral(["\n  justify-content: center;\n  align-self: center;\n  font-size: 11px;\n"]);
 
@@ -782,7 +934,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n\n"]);
+  var data = _taggedTemplateLiteral(["\n  flexDirection: column;\n  justifyContent: flex-end;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -828,14 +980,37 @@ var styles = {
   main: {}
 };
 
-var MobileApp = function MobileApp(props) {
-  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
-    container: true
-  }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
-    item: true,
-    xs: 12
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)"))))))));
-};
+var MobileApp =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MobileApp, _React$Component);
+
+  function MobileApp(props) {
+    var _this;
+
+    _classCallCheck(this, MobileApp);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MobileApp).call(this, props));
+    _this.state = {
+      menuExpanded: false
+    };
+    return _this;
+  }
+
+  _createClass(MobileApp, [{
+    key: "render",
+    value: function render(props) {
+      return _react.default.createElement("div", null, _react.default.createElement(_index.SimpleAppBar, null), _react.default.createElement(StyledGridContainer, {
+        container: true
+      }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
+        item: true,
+        xs: 12
+      }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0"), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)"))))));
+    }
+  }]);
+
+  return MobileApp;
+}(_react.default.Component);
 
 var _default = MobileApp;
 exports.default = _default;
@@ -928,10 +1103,10 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
       return _react.default.createElement("div", null, this.props.projectsAll.map(function (elem) {
-        return _react.default.createElement("div", null, _react.default.createElement(_index.MediaCard, {
-          key: elem.id,
+        return _react.default.createElement("div", {
+          key: elem.id
+        }, _react.default.createElement(_index.MediaCard, {
           title: elem.title,
           image: elem.media,
           descripion: elem.description,
@@ -1289,7 +1464,7 @@ function (_React$Component) {
         to: '/'
       }, _react.default.createElement(_Home.default, {
         alignitem: "center"
-      })), _react.default.createElement(_index.SidebarDropdown, {
+      })), _react.default.createElement("br", null), _react.default.createElement(_index.SidebarDropdown, {
         title: "Projects",
         content: this.props.projectsList
       }), _react.default.createElement(_index.SidebarDropdown, {
@@ -45367,6 +45542,38 @@ var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.d
   fill: "none",
   d: "M0 0h24v24H0z"
 })), 'Home');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Menu.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Menu.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@material-ui/icons/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0z"
+}), _react.default.createElement("path", {
+  d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+})), 'Menu');
 
 exports.default = _default;
 

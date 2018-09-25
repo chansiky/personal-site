@@ -11,7 +11,7 @@ const StyledApp = styled.div`
   background-image: url("DotGrid-5x5.png");
   background-repeat: repeat;
   background-size: 50px;
-  height: 120vh;
+  height: 140vh;
 `
 const App = (props) => {
   return (

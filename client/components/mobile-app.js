@@ -2,7 +2,7 @@ import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import styled from 'styled-components'
-import {Sidebar} from './index'
+import {Sidebar, SimpleAppBar} from './index'
 import Routes from '../routes'
 
 const StyledSidebar = styled(Sidebar)`
@@ -12,7 +12,6 @@ const StyledSidebar = styled(Sidebar)`
 const StyledGridContainer = styled(Grid)`
   flexDirection: column;
   justifyContent: flex-end;
-
 `
 
 const StyledGridItem = styled(Grid)`
@@ -54,36 +53,42 @@ const styles = {
   }
 }
 
-const MobileApp = (props) => {
-  return (
-    <div>
-       <div>
-         <div>
-         <StyledGridContainer container 
-         >
-           <CssBaseline />
-           <StyledGridItem item 
-             xs={12}
-           >
-             <StyledFrontpageDiv>
-               <Routes />
-             </StyledFrontpageDiv>
-             <StyledBottomMessage>
-               <StyledBottomMessageColumn>
-               <StyledBottomMessageText>
-                 Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
-               </StyledBottomMessageText>  
-               <StyledBottomMessageText>  
-                 (I will update with fancy graphics soon, please be patient!)
-               </StyledBottomMessageText>  
-               </StyledBottomMessageColumn>
-             </StyledBottomMessage>
-           </StyledGridItem>
-         </StyledGridContainer>
-         </div>
-       </div>
-    </div>
-  )
+class MobileApp extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      menuExpanded: false
+    }
+    
+  }
+  render(props){
+    return (
+      <div>
+        <SimpleAppBar />
+          <StyledGridContainer container 
+          >
+          <CssBaseline />
+          <StyledGridItem item 
+            xs={12}
+          >
+            <StyledFrontpageDiv>
+              <Routes />
+            </StyledFrontpageDiv>
+            <StyledBottomMessage>
+              <StyledBottomMessageColumn>
+              <StyledBottomMessageText>
+                Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: &nbsp;
+              </StyledBottomMessageText>  
+              <StyledBottomMessageText>  
+                (I will update with fancy graphics soon, please be patient!)
+              </StyledBottomMessageText>  
+              </StyledBottomMessageColumn>
+            </StyledBottomMessage>
+          </StyledGridItem>
+        </StyledGridContainer>
+      </div>
+      )
+    }
 }
 
 

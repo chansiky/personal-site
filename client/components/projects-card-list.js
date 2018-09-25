@@ -14,13 +14,12 @@ class ProjectsCardList extends React.Component{
   }
 
   render(){
-    console.log(this.props)
     return(
       <div>
         {this.props.projectsAll.map((elem) => {
           return(
-            <div>
-            <MediaCard key={elem.id} title={elem.title} image={elem.media} descripion={elem.description} source={elem.source} url={elem.url}/>
+            <div key={elem.id}>
+            <MediaCard title={elem.title} image={elem.media} descripion={elem.description} source={elem.source} url={elem.url}/>
             <br/>
             </div>
           )

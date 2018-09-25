@@ -25,8 +25,9 @@ class Emoji extends React.Component {
       emoji : 0
     }
     this.changeEmoji = this.changeEmoji.bind(this)
+    this.changeEmojiNormal = this.changeEmojiNormal.bind(this)
+    this.timeoutID = undefined 
   }
-
 
   componentDidMount(){
     this.setState({
@@ -36,22 +37,24 @@ class Emoji extends React.Component {
   }
   
   componentWillUnmount(){
-    
+    if(this.timeoutID) {
+      clearTimeout(this.timeoutID)
+    }
+    this.timeoutID = undefined
   }
-
 
   changeEmoji(){
     this.setState({
       emoji: this.random(0, this.emojis.length)
     })
-    setTimeout(()=> {this.changeEmojiNormal()}, this.random(600,1000)) 
+    this.timeoutID = setTimeout(()=> {this.changeEmojiNormal()}, this.random(600,1000)) 
   }
 
   changeEmojiNormal(){
     this.setState({
       emoji: 0
     })
-    setTimeout(()=> {this.changeEmoji()}, this.random(4000,6000))
+    this.timeoutID = setTimeout(()=> {this.changeEmoji()}, this.random(4000,6000))
   }
 
   random(min,max){
