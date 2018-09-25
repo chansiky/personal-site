@@ -74,6 +74,7 @@ class Sidebar extends React.Component{
           <StyledReactRouterLink to={'/'}>
             <HomeIcon alignitem="center"/>
           </StyledReactRouterLink>
+          </br>
           <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
           <SidebarDropdown  title='Posts'     content={this.props.postsList} />
           <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
