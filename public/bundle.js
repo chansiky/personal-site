@@ -378,7 +378,7 @@ function (_React$Component) {
         return;
       }
 
-      var shouldShow = lastScroll <= 20 ? true : this.lastScroll !== null ? lastScroll < this.lastScroll : null;
+      var shouldShow = lastScroll <= 20 ? true : lastScroll >= window.innerHeight - 20 ? false : this.lastScroll !== null ? lastScroll < this.lastScroll : null;
 
       if (shouldShow !== this.state.shouldShow) {
         this.setState(function (prevState, props) {
@@ -1626,14 +1626,13 @@ function (_React$Component) {
     }()
   }, {
     key: "render",
-    value: function render() {
-      console.log(this.props);
-      return _react.default.createElement("div", null, _react.default.createElement(StyledSidebarDiv, null, _react.default.createElement(_reactRouterDom.Link, {
+    value: function render(props) {
+      return _react.default.createElement("div", null, _react.default.createElement(StyledSidebarDiv, null, !this.props.mobile ? _react.default.createElement(_reactRouterDom.Link, {
         to: '/'
       }, _react.default.createElement(StyledImg, {
         src: "ChanSikYoun-NavyPier.jpg",
         alt: "Chan Youn, the greatest ever.(<--period)"
-      }), _react.default.createElement("br", null), _react.default.createElement("br", null)), _react.default.createElement(_style.StyledReactRouterLink, {
+      }), _react.default.createElement("br", null), _react.default.createElement("br", null)) : _react.default.createElement("br", null), _react.default.createElement(_style.StyledReactRouterLink, {
         to: '/'
       }, _react.default.createElement(_Home.default, {
         alignitem: "center"
@@ -1654,7 +1653,7 @@ function (_React$Component) {
       }, "About")), _react.default.createElement(_index.SidebarDropdown, {
         title: "Contact",
         content: this.state.contact,
-        expanded: true
+        expanded: !this.props.mobile
       })));
     }
   }]);
@@ -1664,6 +1663,7 @@ function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(store) {
   return {
+    mobile: store.appState.mobile,
     projectsList: store.projects.projectsList,
     postsList: store.posts.postsList
   };

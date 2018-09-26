@@ -61,16 +61,18 @@ class Sidebar extends React.Component{
     await this.props.setPostsList()
   }
 
-  render(){
-    console.log(this.props)
+  render(props){
     return(
       <div>
         <StyledSidebarDiv>
-          <Link to={'/'}>
-            <StyledImg src="ChanSikYoun-NavyPier.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+          {!(this.props.mobile) ?
+            <Link to={'/'}>
+              <StyledImg src="ChanSikYoun-NavyPier.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
+              <br/>
+              <br/>
+            </Link> :
             <br/>
-            <br/>
-          </Link>
+          }
           <StyledReactRouterLink to={'/'}>
             <HomeIcon alignitem="center"/>
           </StyledReactRouterLink>
@@ -83,7 +85,7 @@ class Sidebar extends React.Component{
               About
             </Typography>
           </Link>
-          <SidebarDropdown  title='Contact'  content={this.state.contact} expanded={true} />
+          <SidebarDropdown  title='Contact'  content={this.state.contact} expanded={!this.props.mobile} />
         </StyledSidebarDiv>
       </div>
     )
@@ -92,6 +94,7 @@ class Sidebar extends React.Component{
 
 const mapStateToProps = (store) => {
   return {
+    mobile: store.appState.mobile,
     projectsList: store.projects.projectsList,
     postsList: store.posts.postsList
   }
