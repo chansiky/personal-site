@@ -115,8 +115,6 @@ var _withWidth = _interopRequireDefault(__webpack_require__(/*! @material-ui/cor
 
 var _components = __webpack_require__(/*! ./components */ "./client/components/index.js");
 
-var _routes = _interopRequireDefault(__webpack_require__(/*! ./routes */ "./client/routes.js"));
-
 var _styles = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
 
 var _colors = __webpack_require__(/*! @material-ui/core/colors/ */ "./node_modules/@material-ui/core/colors/index.js");
@@ -124,6 +122,12 @@ var _colors = __webpack_require__(/*! @material-ui/core/colors/ */ "./node_modul
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 var _store = __webpack_require__(/*! ./store */ "./client/store/index.js");
+
+var _reactRouter = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/index.js");
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -140,36 +144,17 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var StyledApp = _styledComponents.default.div(_templateObject());
-/*
-const theme = createMuiTheme({
-palette: {
-//type: 'light',
-primary: {
-main: '#ffffff',
-},
-secondary: {
-main: '##c8efff',
-}
-}
-})
-*/
-
 
 var theme = (0, _styles.createMuiTheme)({
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
-      main: _colors.lime[200] // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
-
+      main: _colors.lime[200]
     },
     secondary: {
       light: '#0066ff',
       main: '#c8efff',
-      // dark: will be calculated from palette.secondary.main,
       contrastText: '#ffcc00'
-    } // error: will use the default color
-
+    }
   }
 });
 
@@ -199,7 +184,7 @@ var mapDispatch = function mapDispatch(dispatch) {
   };
 };
 
-var _default = (0, _withWidth.default)()((0, _reactRedux.connect)(mapState, mapDispatch)(App));
+var _default = (0, _reactRouterDom.withRouter)((0, _withWidth.default)()((0, _reactRedux.connect)(mapState, mapDispatch)(App)));
 
 exports.default = _default;
 
@@ -222,16 +207,25 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //how did you get into programming
 var AboutPage = function AboutPage(props) {
-  return _react.default.createElement("div", null, _react.default.createElement(_index.Emoji, null), _react.default.createElement("h1", null, "Who is Chan(sik) Youn?"), _react.default.createElement("p", null, "So a little about myself, glad that you're interested."), _react.default.createElement("p", null, "I began coding when a friend introduced me to programming when I was in Grad School..."), _react.default.createElement("p", null, "Story will continue, promise, too busy studying/coding/sending out job applications! -_-"));
+  return _react.default.createElement("div", null, !props.mobile ? _react.default.createElement(_index.Emoji, null) : _react.default.createElement("br", null), _react.default.createElement("h1", null, "Who is Chan(sik) Youn?"), _react.default.createElement("p", null, "So a little about myself, glad that you're interested."), _react.default.createElement("p", null, "I began coding when a friend introduced me to programming when I was in Grad School..."), _react.default.createElement("p", null, "Story will continue, promise, too busy studying/coding/sending out job applications! -_-"));
 };
 
-var _default = AboutPage;
+var mapState = function mapState(store) {
+  return {
+    mobile: store.appState.mobile
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapState, null)(AboutPage);
+
 exports.default = _default;
 
 /***/ }),
@@ -271,6 +265,8 @@ var _Minimize = _interopRequireDefault(__webpack_require__(/*! @material-ui/icon
 
 var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
 
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -294,6 +290,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StyledColumnAlign = _styledComponents.default.div(_templateObject());
 
 var styles = {
   root: {
@@ -337,13 +347,13 @@ function (_React$Component) {
     _classCallCheck(this, SimpleAppBar);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SimpleAppBar).call(this, props));
-    _this.handleMenuClick = _this.handleMenuClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.state = {
       expanded: false,
       shouldShow: null
     };
     _this.lastScroll = null;
     _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleMenuClick = _this.handleMenuClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -392,7 +402,10 @@ function (_React$Component) {
   }, {
     key: "handleMenuClick",
     value: function handleMenuClick() {
-      console.log("hello everybody");
+      this.setState(_objectSpread({}, this.state, {
+        expanded: !this.state.expanded
+      }));
+      console.log(this.state.expanded);
     }
   }, {
     key: "render",
@@ -420,7 +433,7 @@ function (_React$Component) {
         "aria-label": "Menu"
       }, _react.default.createElement("div", {
         className: classes.blankIcon
-      })))));
+      }))), this.state.expanded && _react.default.createElement(StyledColumnAlign, null, " ", _react.default.createElement(_index.Sidebar, null), " ")));
     }
   }]);
 
@@ -670,6 +683,8 @@ var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-co
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
+var _reactRouter = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -735,7 +750,7 @@ var mapState = function mapState(store) {
   };
 };
 
-var _default = (0, _reactRedux.connect)(mapState)(FrontPage);
+var _default = (0, _reactRedux.connect)(mapState, null)((0, _reactRouter.withRouter)(FrontPage));
 
 exports.default = _default;
 
@@ -1613,7 +1628,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       console.log(this.props);
-      return _react.default.createElement(StyledColumnAlign, null, _react.default.createElement(StyledSidebarDiv, null, _react.default.createElement(_reactRouterDom.Link, {
+      return _react.default.createElement("div", null, _react.default.createElement(StyledSidebarDiv, null, _react.default.createElement(_reactRouterDom.Link, {
         to: '/'
       }, _react.default.createElement(StyledImg, {
         src: "ChanSikYoun-NavyPier.jpg",
@@ -1800,11 +1815,13 @@ var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
 
 var _style = __webpack_require__(/*! ../style */ "./client/style/index.js");
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //how did you get into programming
 var VimPage = function VimPage(props) {
-  return _react.default.createElement("div", null, _react.default.createElement(_index.Emoji, null), _react.default.createElement("h1", null, "I Love VIM!"), _react.default.createElement("p", null, "VIM is awesome.  Maybe I'll write an article on it when I have more time someday."), _react.default.createElement("p", null, "For now, if you want to learn, I'd suggest using a VIM/style plugin for your browser to get accustomed to the motions.  For example:"), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
+  return _react.default.createElement("div", null, !props.mobile ? _react.default.createElement(_index.Emoji, null) : _react.default.createElement("br", null), _react.default.createElement("h1", null, "I Love VIM!"), _react.default.createElement("p", null, "VIM is awesome.  Maybe I'll write an article on it when I have more time someday."), _react.default.createElement("p", null, "For now, if you want to learn, I'd suggest using a VIM/style plugin for your browser to get accustomed to the motions.  For example:"), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
     href: "https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en",
     target: "_blank"
   }, "Vimium for Chrome")), _react.default.createElement("p", null, _react.default.createElement(_style.StyledLinkText, {
@@ -1816,7 +1833,14 @@ var VimPage = function VimPage(props) {
   }, "Settings for nVim")));
 };
 
-var _default = VimPage;
+var mapState = function mapState(store) {
+  return {
+    mobile: store.appState.mobile
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapState, null)(VimPage);
+
 exports.default = _default;
 
 /***/ }),
@@ -1852,7 +1876,19 @@ var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
 
 var _routes = _interopRequireDefault(__webpack_require__(/*! ../routes */ "./client/routes.js"));
 
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject7() {
   var data = _taggedTemplateLiteral(["\n  font-size: 11px;\n"]);
@@ -1930,13 +1966,15 @@ var StyledSidebar = (0, _styledComponents.default)(_index.Sidebar)(_templateObje
 var StyledGridContainer = (0, _styledComponents.default)(_Grid.default)(_templateObject2());
 var StyledGridItem = (0, _styledComponents.default)(_Grid.default)(_templateObject3());
 
-var StyledFrontpageDiv = _styledComponents.default.div(_templateObject4());
+var StyledBodyDiv = _styledComponents.default.div(_templateObject4());
 
 var StyledBottomMessage = _styledComponents.default.div(_templateObject5());
 
 var StyledBottomMessageColumn = _styledComponents.default.div(_templateObject6());
 
 var StyledBottomMessageText = _styledComponents.default.div(_templateObject7());
+
+var StyledColumnAlign = _styledComponents.default.div(_templateObject8());
 
 var styles = {
   container: {
@@ -1957,10 +1995,10 @@ var WebApp = function WebApp(props) {
   }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 3
-  }, _react.default.createElement(StyledSidebar, null)), _react.default.createElement(StyledGridItem, {
+  }, _react.default.createElement(StyledColumnAlign, null, _react.default.createElement(StyledSidebar, null))), _react.default.createElement(StyledGridItem, {
     item: true,
     xs: 6
-  }, _react.default.createElement(StyledFrontpageDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0", _react.default.createElement(_style.StyledLinkText, {
+  }, _react.default.createElement(StyledBodyDiv, null, _react.default.createElement(_routes.default, null)), _react.default.createElement(StyledBottomMessage, null, _react.default.createElement(StyledBottomMessageColumn, null, _react.default.createElement(StyledBottomMessageText, null, "Website built on Node.js, Express, React & Redux, PostgresQL/Sequelize: \xA0", _react.default.createElement(_style.StyledLinkText, {
     href: "https://github.com/chansiky/personal-site"
   }, "source")), _react.default.createElement(StyledBottomMessageText, null, "(I will update with fancy graphics soon, please be patient!)")))), _react.default.createElement(StyledGridItem, {
     item: true,
@@ -1968,7 +2006,8 @@ var WebApp = function WebApp(props) {
   })))));
 };
 
-var _default = WebApp;
+var _default = (0, _reactRouterDom.withRouter)(WebApp);
+
 exports.default = _default;
 
 /***/ }),
@@ -2156,12 +2195,15 @@ function (_Component) {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
         path: "/about",
         component: _components.AboutPage
       }), _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
         path: "/vim",
         component: _components.VimPage
       }), _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
         path: "/",
         component: _components.FrontPage
       })));
@@ -88005,6 +88047,68 @@ var generatePath = function generatePath() {
 
 /***/ }),
 
+/***/ "./node_modules/react-router/es/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/react-router/es/index.js ***!
+  \***********************************************/
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MemoryRouter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MemoryRouter */ "./node_modules/react-router/es/MemoryRouter.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return _MemoryRouter__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _Prompt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Prompt */ "./node_modules/react-router/es/Prompt.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return _Prompt__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _Redirect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Redirect */ "./node_modules/react-router/es/Redirect.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return _Redirect__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _Route__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Route */ "./node_modules/react-router/es/Route.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return _Route__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Router */ "./node_modules/react-router/es/Router.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return _Router__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _StaticRouter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./StaticRouter */ "./node_modules/react-router/es/StaticRouter.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return _StaticRouter__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* harmony import */ var _Switch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Switch */ "./node_modules/react-router/es/Switch.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return _Switch__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+/* harmony import */ var _generatePath__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./generatePath */ "./node_modules/react-router/es/generatePath.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "generatePath", function() { return _generatePath__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
+/* harmony import */ var _matchPath__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./matchPath */ "./node_modules/react-router/es/matchPath.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return _matchPath__WEBPACK_IMPORTED_MODULE_8__["default"]; });
+
+/* harmony import */ var _withRouter__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./withRouter */ "./node_modules/react-router/es/withRouter.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return _withRouter__WEBPACK_IMPORTED_MODULE_9__["default"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/react-router/es/matchPath.js":
 /*!***************************************************!*\
   !*** ./node_modules/react-router/es/matchPath.js ***!
@@ -91404,9 +91508,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var getDisplayName = function getDisplayName(Component) {
@@ -91472,9 +91574,7 @@ module.exports = _interopRequireDefault;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _shouldUpdate = _interopRequireDefault(__webpack_require__(/*! ./shouldUpdate */ "./node_modules/recompose/shouldUpdate.js"));
@@ -91514,9 +91614,7 @@ exports.default = _default;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _setStatic = _interopRequireDefault(__webpack_require__(/*! ./setStatic */ "./node_modules/recompose/setStatic.js"));
@@ -91540,9 +91638,7 @@ exports.default = _default;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var setStatic = function setStatic(key, value) {
@@ -91572,9 +91668,7 @@ exports.default = _default;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _shallowEqual = _interopRequireDefault(__webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/fbjs/lib/shallowEqual.js"));
@@ -91596,9 +91690,7 @@ exports.default = _default;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _inheritsLoose2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inheritsLoose */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/inheritsLoose.js"));
@@ -91660,9 +91752,7 @@ exports.default = _default;
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _getDisplayName = _interopRequireDefault(__webpack_require__(/*! ./getDisplayName */ "./node_modules/recompose/getDisplayName.js"));

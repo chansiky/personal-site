@@ -7,7 +7,14 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MinimizeIcon from '@material-ui/icons/Minimize';
-import { Emoji } from './index'
+import { Emoji, Sidebar } from './index'
+import styled from 'styled-components'
+
+const StyledColumnAlign = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
 
 const styles = {
   root: {
@@ -43,15 +50,15 @@ const styles = {
 class SimpleAppBar extends React.Component {
   constructor(props){
     super(props)
-    this.handleMenuClick = this.handleMenuClick.bind(this)
     
     this.state = {
       expanded: false,
-      shouldShow: null,
+      shouldShow: null
     }
 
-    this.lastScroll = null; 
-    this.handleScroll = this.handleScroll.bind(this);
+    this.lastScroll = null
+    this.handleScroll = this.handleScroll.bind(this)
+    this.handleMenuClick = this.handleMenuClick.bind(this)
   }
 
   componentDidMount() {
@@ -95,8 +102,10 @@ class SimpleAppBar extends React.Component {
   }
 
   handleMenuClick(){
-    console.log("hello everybody")
+    this.setState({...this.state, expanded: !this.state.expanded})
+    console.log(this.state.expanded)
   }
+
   render(props){
     const { classes } = this.props;
     return (
@@ -118,6 +127,7 @@ class SimpleAppBar extends React.Component {
             <div className={classes.blankIcon} />
           </IconButton>
         </Toolbar>
+        {this.state.expanded && <StyledColumnAlign> <Sidebar /> </StyledColumnAlign>}
       </AppBar>
     </div>
     )

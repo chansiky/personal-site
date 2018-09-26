@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {Emoji} from './index'
 
 //how did you get into programming
@@ -6,7 +7,10 @@ import {Emoji} from './index'
 const AboutPage = (props) => {
   return (
     <div>
-      <Emoji />
+       {!(props.mobile) ?
+         <Emoji /> :
+         <br/>
+       }
       <h1>
         Who is Chan(sik) Youn?
       </h1>
@@ -24,5 +28,10 @@ const AboutPage = (props) => {
   )
 }
 
+const mapState = (store) => {
+  return {
+    mobile: store.appState.mobile,
+  }
+}
 
-export default AboutPage
+export default connect(mapState, null)(AboutPage)

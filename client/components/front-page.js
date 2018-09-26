@@ -2,6 +2,7 @@ import React from 'react'
 import {Emoji, Body} from './index'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 
 const StyledFrontPageDiv = styled.div`
   display: flex;
@@ -38,4 +39,4 @@ const mapState = (store) => {
 
 
 
-export default connect(mapState,)(FrontPage)
+export default connect(mapState, null)(withRouter(FrontPage))

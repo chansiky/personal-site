@@ -1,13 +1,17 @@
 import React from 'react'
 import {Emoji} from './index'
 import {StyledLinkText, StyledReactRouterLink} from '../style'
+import {connect} from 'react-redux'
 
 //how did you get into programming
 
 const VimPage = (props) => {
   return (
     <div>
-      <Emoji />
+       {!(props.mobile) ?
+         <Emoji /> :
+         <br/>
+       }
       <h1>
         I Love VIM!
       </h1>
@@ -38,5 +42,10 @@ const VimPage = (props) => {
   )
 }
 
+const mapState = (store) => {
+  return {
+    mobile: store.appState.mobile,
+  }
+}
 
-export default VimPage
+export default connect(mapState, null)(VimPage)

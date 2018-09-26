@@ -6,6 +6,7 @@ import { StyledLinkText } from '../style'
 import withWidth from'@material-ui/core/withWidth'
 import {Navbar, Sidebar} from './index'
 import Routes from '../routes'
+import {withRouter} from 'react-router-dom'
 
 const StyledSidebar = styled(Sidebar)`
   padding: 50px;
@@ -19,7 +20,7 @@ const StyledGridContainer = styled(Grid)`
 const StyledGridItem = styled(Grid)`
 `
 
-const StyledFrontpageDiv = styled.div`
+const StyledBodyDiv = styled.div`
   padding: 50px;
 `
 const StyledBottomMessage = styled.div`
@@ -37,6 +38,11 @@ const StyledBottomMessageText = styled.div`
   font-size: 11px;
 `
 
+const StyledColumnAlign = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`
 const styles = {
   container : {
     justifyContent : 'flex-end',
@@ -63,15 +69,17 @@ const WebApp = (props) => {
           <StyledGridItem item 
             xs={3}
           >
-            <StyledSidebar
+          <StyledColumnAlign>
+             <StyledSidebar
             />
+          </StyledColumnAlign>
           </StyledGridItem>
           <StyledGridItem item 
             xs={6}
           >
-            <StyledFrontpageDiv>
+            <StyledBodyDiv>
               <Routes />
-            </StyledFrontpageDiv>
+            </StyledBodyDiv>
             <StyledBottomMessage>
               <StyledBottomMessageColumn>
               <StyledBottomMessageText>
@@ -98,4 +106,4 @@ const WebApp = (props) => {
 }
 
 
-export default WebApp;
+export default withRouter(WebApp);

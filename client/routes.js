@@ -16,9 +16,9 @@ class Routes extends Component {
     return (
       <div>
       <Switch>
-        <Route path='/about' component={AboutPage} />
-        <Route path='/vim' component={VimPage} />
-        <Route path='/' component={FrontPage} />
+        <Route exact path='/about' component={AboutPage} />
+        <Route exact path='/vim' component={VimPage} />
+        <Route exact path='/' component={FrontPage} />
       </Switch>
       </div>
     )

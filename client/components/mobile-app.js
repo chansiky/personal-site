@@ -37,7 +37,6 @@ const StyledBottomMessageText = styled.div`
   align-self: center;
   font-size: 11px;
 `
-
 const styles = {
   container : {
     justifyContent : 'flex-end',

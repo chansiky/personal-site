@@ -64,7 +64,7 @@ class Sidebar extends React.Component{
   render(){
     console.log(this.props)
     return(
-      <StyledColumnAlign>
+      <div>
         <StyledSidebarDiv>
           <Link to={'/'}>
             <StyledImg src="ChanSikYoun-NavyPier.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
@@ -85,7 +85,7 @@ class Sidebar extends React.Component{
           </Link>
           <SidebarDropdown  title='Contact'  content={this.state.contact} expanded={true} />
         </StyledSidebarDiv>
-      </StyledColumnAlign>
+      </div>
     )
   }
 }
