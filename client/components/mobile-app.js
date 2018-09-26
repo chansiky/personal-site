@@ -2,7 +2,7 @@ import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import styled from 'styled-components'
-import {Sidebar, SimpleAppBar} from './index'
+import {Sidebar} from './index'
 import Routes from '../routes'
 
 const StyledSidebar = styled(Sidebar)`
@@ -64,7 +64,6 @@ class MobileApp extends React.Component {
   render(props){
     return (
       <div>
-        <SimpleAppBar />
           <StyledGridContainer container 
           >
           <CssBaseline />

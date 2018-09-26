@@ -117,6 +117,10 @@ var _components = __webpack_require__(/*! ./components */ "./client/components/i
 
 var _routes = _interopRequireDefault(__webpack_require__(/*! ./routes */ "./client/routes.js"));
 
+var _styles = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+
+var _colors = __webpack_require__(/*! @material-ui/core/colors/ */ "./node_modules/@material-ui/core/colors/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
@@ -132,9 +136,43 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var StyledApp = _styledComponents.default.div(_templateObject());
+/*
+const theme = createMuiTheme({
+palette: {
+//type: 'light',
+primary: {
+main: '#ffffff',
+},
+secondary: {
+main: '##c8efff',
+}
+}
+})
+*/
+
+
+var theme = (0, _styles.createMuiTheme)({
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: _colors.lime[200] // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+
+    },
+    secondary: {
+      light: '#0066ff',
+      main: '#c8efff',
+      // dark: will be calculated from palette.secondary.main,
+      contrastText: '#ffcc00'
+    } // error: will use the default color
+
+  }
+});
 
 var App = function App(props) {
-  return _react.default.createElement("div", null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledApp, null, props.width === 'sm' || props.width === 'xs' ? _react.default.createElement(_components.MobileApp, null) : _react.default.createElement(_components.WebApp, null)));
+  return _react.default.createElement("div", null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_styles.MuiThemeProvider, {
+    theme: theme
+  }, _react.default.createElement(StyledApp, null, props.width === 'sm' || props.width === 'xs' ? _react.default.createElement("div", null, _react.default.createElement(_components.SimpleAppBar, null), _react.default.createElement(_components.MobileApp, null)) : _react.default.createElement(_components.WebApp, null))));
 };
 
 var _default = (0, _withWidth.default)()(App);
@@ -205,9 +243,17 @@ var _IconButton = _interopRequireDefault(__webpack_require__(/*! @material-ui/co
 
 var _Menu = _interopRequireDefault(__webpack_require__(/*! @material-ui/icons/Menu */ "./node_modules/@material-ui/icons/Menu.js"));
 
+var _Minimize = _interopRequireDefault(__webpack_require__(/*! @material-ui/icons/Minimize */ "./node_modules/@material-ui/icons/Minimize.js"));
+
+var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -227,14 +273,32 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 var styles = {
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    position: 'fixed',
+    variant: 'dense'
   },
   grow: {
     flexGrow: 1
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 12
+  },
+  show: {
+    transform: 'translateY(0)',
+    transition: 'transform .3s'
+  },
+  hide: {
+    transform: 'translateY(-110%)',
+    transition: 'transform .3s'
+  },
+  center: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  blankIcon: {
+    height: '24dp',
+    width: '24dp'
   }
 };
 
@@ -250,10 +314,58 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SimpleAppBar).call(this, props));
     _this.handleMenuClick = _this.handleMenuClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.state = {
+      expanded: false,
+      shouldShow: null
+    };
+    _this.lastScroll = null;
+    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(SimpleAppBar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll, {
+        passive: true
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: "handleScroll",
+    value: function handleScroll(evt) {
+      var lastScroll = window.scrollY;
+
+      if (lastScroll === this.lastScroll) {
+        return;
+      }
+
+      var shouldShow = this.lastScroll !== null ? lastScroll < this.lastScroll : null;
+
+      if (shouldShow !== this.state.shouldShow) {
+        this.setState(function (prevState, props) {
+          return _objectSpread({}, prevState, {
+            shouldShow: shouldShow
+          });
+        });
+      }
+
+      this.lastScroll = lastScroll;
+    }
+  }, {
+    key: "getScrollClassName",
+    value: function getScrollClassName() {
+      if (this.state.shouldShow === null) {
+        return '';
+      }
+
+      return this.state.shouldShow ? this.props.classes.show : this.props.classes.hide;
+    }
+  }, {
     key: "handleMenuClick",
     value: function handleMenuClick() {
       console.log("hello everybody");
@@ -266,16 +378,25 @@ function (_React$Component) {
         className: classes.root
       }, _react.default.createElement(_AppBar.default, {
         position: "sticky",
-        color: "default"
-      }, _react.default.createElement(_Toolbar.default, null, _react.default.createElement(_IconButton.default, {
+        color: "inherit",
+        className: "".concat(classes.root, " \n             ").concat(this.getScrollClassName())
+      }, _react.default.createElement(_Toolbar.default, {
+        variant: "dense",
+        className: classes.center
+      }, _react.default.createElement(_IconButton.default, {
         onClick: this.handleMenuClick,
         className: classes.menuButton,
         color: "inherit",
         "aria-label": "Menu"
-      }, _react.default.createElement(_Menu.default, null)), _react.default.createElement(_Typography.default, {
-        variant: "title",
-        color: "inherit"
-      }, "Chan-sik Youn Portfolio"))));
+      }, _react.default.createElement(_Menu.default, null)), _react.default.createElement("div", {
+        className: classes.center
+      }, _react.default.createElement(_index.Emoji, null)), _react.default.createElement(_IconButton.default, {
+        className: classes.menuButton,
+        color: "inherit",
+        "aria-label": "Menu"
+      }, _react.default.createElement("div", {
+        className: classes.blankIcon
+      })))));
     }
   }]);
 
@@ -523,6 +644,8 @@ var _index = __webpack_require__(/*! ./index */ "./client/components/index.js");
 
 var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -563,14 +686,18 @@ function (_React$Component) {
   _inherits(FrontPage, _React$Component);
 
   function FrontPage(props) {
+    var _this;
+
     _classCallCheck(this, FrontPage);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(FrontPage).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FrontPage).call(this, props));
+    console.log(props);
+    return _this;
   }
 
   _createClass(FrontPage, [{
     key: "render",
-    value: function render() {
+    value: function render(props) {
       return _react.default.createElement(StyledFrontPageDiv, null, _react.default.createElement(_index.Emoji, null), _react.default.createElement(_index.Body, null));
     }
   }]);
@@ -578,7 +705,12 @@ function (_React$Component) {
   return FrontPage;
 }(_react.default.Component);
 
-var _default = FrontPage;
+mapState = function mapState(state) {
+  return {};
+};
+
+var _default = (0, _reactRedux.connect)(mapState)(FrontPage);
+
 exports.default = _default;
 
 /***/ }),
@@ -1000,7 +1132,7 @@ function (_React$Component) {
   _createClass(MobileApp, [{
     key: "render",
     value: function render(props) {
-      return _react.default.createElement("div", null, _react.default.createElement(_index.SimpleAppBar, null), _react.default.createElement(StyledGridContainer, {
+      return _react.default.createElement("div", null, _react.default.createElement(StyledGridContainer, {
         container: true
       }, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(StyledGridItem, {
         item: true,
@@ -45574,6 +45706,38 @@ var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.d
 }), _react.default.createElement("path", {
   d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
 })), 'Menu');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Minimize.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Minimize.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@material-ui/icons/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  d: "M6 19h12v2H6z"
+}), _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0V0z"
+})), 'Minimize');
 
 exports.default = _default;
 
