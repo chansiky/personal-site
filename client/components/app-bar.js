@@ -5,15 +5,21 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Menu from '@material-ui/icons/Menu';
+import {Clear } from '@material-ui/icons';
 import MinimizeIcon from '@material-ui/icons/Minimize';
 import { Emoji, Sidebar } from './index'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+import {BlackReactRouterLink} from '../style'
+import Drawer from '@material-ui/core/Drawer';
 
 const StyledColumnAlign = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: white;
+  width: 30vw;
 `
 
 const styles = {
@@ -78,7 +84,7 @@ class SimpleAppBar extends React.Component {
 
     const shouldShow = 
         (lastScroll <= 20) ?  true :
-        (lastScroll >= window.innerHeight - 20) ? false :
+        (lastScroll >= window.innerHeight - 100) ? false :
         (this.lastScroll !== null) ?  (lastScroll < this.lastScroll) : null
     
 
@@ -101,10 +107,14 @@ class SimpleAppBar extends React.Component {
       ? this.props.classes.show
       : this.props.classes.hide;
   }
+  getSidebarClassName(){
+    return this.state.expanded
+    ? this.props.classes.show
+    : this.props.classes.hide
+  }
 
   handleMenuClick(){
     this.setState({...this.state, expanded: !this.state.expanded})
-    console.log(this.state.expanded)
   }
 
   render(props){
@@ -119,16 +129,25 @@ class SimpleAppBar extends React.Component {
       >
         <Toolbar variant='dense' className={classes.center}>
           <IconButton onClick={this.handleMenuClick} className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
+            {this.state.expanded
+            ? <Clear />
+            : <Menu />
+            }
           </IconButton>
           <div className={classes.center}>
+            <BlackReactRouterLink to={'/'} cursor='pointer'> 
             <Emoji/>
+            </BlackReactRouterLink> 
           </div >
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <div className={classes.blankIcon} />
           </IconButton>
         </Toolbar>
-        {this.state.expanded && <StyledColumnAlign> <Sidebar /> </StyledColumnAlign>}
+        <Drawer open={this.state.expanded} onClose={this.handleMenuClick}>
+            <StyledColumnAlign> 
+              <Sidebar /> 
+            </StyledColumnAlign> 
+        </Drawer>
       </AppBar>
     </div>
     )

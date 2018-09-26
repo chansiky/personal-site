@@ -6,3 +6,8 @@ export const StyledReactRouterLink = styled(Link)`
   text-decoration: underline;
   cursor: pointer;
 `
+
+export const BlackReactRouterLink = styled(Link)`
+  color: black;
+  cursor: pointer;
+`

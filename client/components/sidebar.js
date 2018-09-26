@@ -65,17 +65,16 @@ class Sidebar extends React.Component{
     return(
       <div>
         <StyledSidebarDiv>
-          {!(this.props.mobile) ?
+          <div>
             <Link to={'/'}>
               <StyledImg src="ChanSikYoun-NavyPier.jpg" alt="Chan Youn, the greatest ever.(<--period)"/>
-              <br/>
-              <br/>
-            </Link> :
+            </Link>
             <br/>
-          }
-          <StyledReactRouterLink to={'/'}>
-            <HomeIcon alignitem="center"/>
-          </StyledReactRouterLink>
+            <br/>
+            <StyledReactRouterLink to={'/'}>
+              <HomeIcon alignitem="center"/>
+            </StyledReactRouterLink>
+          </div>
           <br/>
           <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
           <SidebarDropdown  title='Posts'     content={this.props.postsList} />
