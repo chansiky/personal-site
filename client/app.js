@@ -7,7 +7,9 @@ import withWidth from'@material-ui/core/withWidth'
 import {Navbar, Sidebar, WebApp, MobileApp, SimpleAppBar} from './components'
 import Routes from './routes'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {grey, lime} from '@material-ui/core/colors/';
+import {grey, lime} from '@material-ui/core/colors/'
+import {connect} from 'react-redux'
+import {setMobileThunk} from './store'
 
 const StyledApp = styled.div`
   background-image: url("DotGrid-5x5.png");
@@ -50,13 +52,18 @@ const theme = createMuiTheme({
 
 
 const App = (props) => {
+  if (props.width === 'sm' || props.width === 'xs') {
+    props.setMobile(true)
+  } else{
+    props.setMobile(false)
+  }
+
   return (
     <div>
       <CssBaseline />
       <MuiThemeProvider theme={theme} >
         <StyledApp>
-          {
-            (props.width === 'sm' || props.width === 'xs') ?
+          { (props.mobile) ?
                <div>
                  <SimpleAppBar/>
                  <MobileApp/> 
@@ -68,6 +75,17 @@ const App = (props) => {
     </div>
   )
 }
+const mapState = (store) => {
+  return ({
+    mobile: store.appState.mobile
+  })
+}
 
+const mapDispatch = (dispatch)=>{
+  return({
+    setMobile: (mobileState) => dispatch(setMobileThunk(mobileState))  
+  })
 
-export default withWidth()(App);
+}
+
+export default  withWidth()(connect(mapState, mapDispatch)(App))

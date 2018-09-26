@@ -20,16 +20,19 @@ class FrontPage extends React.Component{
   render(props){
     return(
       <StyledFrontPageDiv>
-        <Emoji />
+        {!(this.props.mobile) ?
+          <Emoji /> :
+          <br/>
+        }
         <Body />
       </StyledFrontPageDiv>
     )
   }
 }
 
-mapState = (state) => {
+const mapState = (store) => {
   return {
-    
+    mobile: store.appState.mobile,
   }
 }
 

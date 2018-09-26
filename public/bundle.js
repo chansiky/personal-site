@@ -121,6 +121,10 @@ var _styles = __webpack_require__(/*! @material-ui/core/styles */ "./node_module
 
 var _colors = __webpack_require__(/*! @material-ui/core/colors/ */ "./node_modules/@material-ui/core/colors/index.js");
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _store = __webpack_require__(/*! ./store */ "./client/store/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
@@ -170,12 +174,32 @@ var theme = (0, _styles.createMuiTheme)({
 });
 
 var App = function App(props) {
+  if (props.width === 'sm' || props.width === 'xs') {
+    props.setMobile(true);
+  } else {
+    props.setMobile(false);
+  }
+
   return _react.default.createElement("div", null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_styles.MuiThemeProvider, {
     theme: theme
-  }, _react.default.createElement(StyledApp, null, props.width === 'sm' || props.width === 'xs' ? _react.default.createElement("div", null, _react.default.createElement(_components.SimpleAppBar, null), _react.default.createElement(_components.MobileApp, null)) : _react.default.createElement(_components.WebApp, null))));
+  }, _react.default.createElement(StyledApp, null, props.mobile ? _react.default.createElement("div", null, _react.default.createElement(_components.SimpleAppBar, null), _react.default.createElement(_components.MobileApp, null)) : _react.default.createElement(_components.WebApp, null))));
 };
 
-var _default = (0, _withWidth.default)()(App);
+var mapState = function mapState(store) {
+  return {
+    mobile: store.appState.mobile
+  };
+};
+
+var mapDispatch = function mapDispatch(dispatch) {
+  return {
+    setMobile: function setMobile(mobileState) {
+      return dispatch((0, _store.setMobileThunk)(mobileState));
+    }
+  };
+};
+
+var _default = (0, _withWidth.default)()((0, _reactRedux.connect)(mapState, mapDispatch)(App));
 
 exports.default = _default;
 
@@ -698,15 +722,17 @@ function (_React$Component) {
   _createClass(FrontPage, [{
     key: "render",
     value: function render(props) {
-      return _react.default.createElement(StyledFrontPageDiv, null, _react.default.createElement(_index.Emoji, null), _react.default.createElement(_index.Body, null));
+      return _react.default.createElement(StyledFrontPageDiv, null, !this.props.mobile ? _react.default.createElement(_index.Emoji, null) : _react.default.createElement("br", null), _react.default.createElement(_index.Body, null));
     }
   }]);
 
   return FrontPage;
 }(_react.default.Component);
 
-mapState = function mapState(state) {
-  return {};
+var mapState = function mapState(store) {
+  return {
+    mobile: store.appState.mobile
+  };
 };
 
 var _default = (0, _reactRedux.connect)(mapState)(FrontPage);
@@ -2181,6 +2207,67 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./client/store/app-state.js":
+/*!***********************************!*\
+  !*** ./client/store/app-state.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+exports.setMobileThunk = void 0;
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//initial state
+var initialAppState = {
+  mobile: false //action name
+
+};
+var SET_MOBILE = 'SET_MOBILE'; //action creator
+
+var setMobile = function setMobile(mobile) {
+  return {
+    type: SET_MOBILE,
+    mobile: mobile
+  };
+}; //thunk creator
+
+
+var setMobileThunk = function setMobileThunk(mobileState) {
+  return function (dispatch) {
+    dispatch(setMobile(mobileState));
+  };
+}; //reducer
+
+
+exports.setMobileThunk = setMobileThunk;
+
+function _default() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialAppState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case SET_MOBILE:
+      return _objectSpread({}, state, {
+        mobile: action.mobile
+      });
+
+    default:
+      return state;
+  }
+}
+
+/***/ }),
+
 /***/ "./client/store/index.js":
 /*!*******************************!*\
   !*** ./client/store/index.js ***!
@@ -2231,13 +2318,27 @@ Object.keys(_posts).forEach(function (key) {
   });
 });
 
+var _appState = _interopRequireWildcard(__webpack_require__(/*! ./app-state */ "./client/store/app-state.js"));
+
+Object.keys(_appState).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _appState[key];
+    }
+  });
+});
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var reducer = (0, _redux.combineReducers)({
   projects: _projects.default,
-  posts: _posts.default
+  posts: _posts.default,
+  appState: _appState.default
 });
 var middleware = (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_reduxThunk.default, (0, _reduxLogger.default)({
   collapsed: true
