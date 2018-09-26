@@ -69,7 +69,7 @@ class SimpleAppBar extends React.Component {
       return;
     }
 
-    const shouldShow = (lastScroll === 0) ? 
+    const shouldShow = (lastScroll <= 20) ? 
       true :
         (this.lastScroll !== null) ?  (lastScroll < this.lastScroll) : null
     
