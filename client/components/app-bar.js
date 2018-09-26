@@ -69,7 +69,10 @@ class SimpleAppBar extends React.Component {
       return;
     }
 
-    const shouldShow = (this.lastScroll !== null) ?  (lastScroll < this.lastScroll) : null;
+    const shouldShow = (lastScroll === 0) ? 
+      true :
+        (this.lastScroll !== null) ?  (lastScroll < this.lastScroll) : null
+    
 
     if (shouldShow !== this.state.shouldShow) {
       this.setState((prevState, props) => ({

@@ -368,7 +368,7 @@ function (_React$Component) {
         return;
       }
 
-      var shouldShow = this.lastScroll !== null ? lastScroll < this.lastScroll : null;
+      var shouldShow = lastScroll === 0 ? true : this.lastScroll !== null ? lastScroll < this.lastScroll : null;
 
       if (shouldShow !== this.state.shouldShow) {
         this.setState(function (prevState, props) {
