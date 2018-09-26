@@ -41,7 +41,7 @@ const styles = {
   },
   hide: {
     transform: 'translateY(-110%)',
-    transition: 'transform .3s',
+    transition: 'transform .1s',
   },
   center: {
     display: 'flex',
