@@ -37,7 +37,7 @@ const styles = {
     opacity: 0,
     height: '0',
     overflow: 'hidden',
-    transition: 'transform .4s, height .4s , opacity .1s',
+    transition: 'transform .0s, height .0s , opacity .0s',
   }
 };
 
@@ -58,7 +58,12 @@ class SidebarDropdown extends React.Component{
       : this.props.classes.hide;
   }
 
+  hoverFadeIn(event){
+    console.log('hoverTest &', event)
+  }
+
   render(){
+    const{ classes } = this.props;
     const list = (this.props.content && this.props.content.length > 0) ?
       <div> 
         {this.props.content.map((elem) => {
