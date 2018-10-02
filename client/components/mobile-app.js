@@ -7,7 +7,6 @@ import Routes from '../routes'
 
 const StyledSidebar = styled(Sidebar)`
   padding: 50px;
-  width: 400px;
 `
 
 const StyledGridContainer = styled(Grid)`
@@ -46,11 +45,7 @@ const styles = {
   },
   sidebar : {
     padding: '20px',
-    backgroundColor: 'magenta'
   },
-  main: {
-
-  }
 }
 
 class MobileApp extends React.Component {

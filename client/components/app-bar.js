@@ -50,11 +50,8 @@ const styles = {
   blankIcon: {
     height: '24dp',
     width: '24dp',
-  },
-  drawer: {
-    minWidth: '350px',
   }
-};
+;
 
 class SimpleAppBar extends React.Component {
   constructor(props){
@@ -146,7 +143,7 @@ class SimpleAppBar extends React.Component {
             <div className={classes.blankIcon} />
           </IconButton>
         </Toolbar>
-        <Drawer className={classes.drawer} open={this.state.expanded} onClose={this.handleMenuClick}>
+        <Drawer open={this.state.expanded} onClose={this.handleMenuClick}>
             <StyledColumnAlign> 
               <Sidebar /> 
             </StyledColumnAlign> 
