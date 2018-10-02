@@ -51,7 +51,7 @@ const styles = {
     height: '24dp',
     width: '24dp',
   }
-;
+}
 
 class SimpleAppBar extends React.Component {
   constructor(props){
