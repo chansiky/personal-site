@@ -45,11 +45,7 @@ const styles = {
   },
   sidebar : {
     padding: '20px',
-    backgroundColor: 'magenta'
   },
-  main: {
-
-  }
 }
 
 class MobileApp extends React.Component {

@@ -19,7 +19,7 @@ const StyledColumnAlign = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: white;
-  width: 30vw;
+  width: 160px;
 `
 
 const styles = {
@@ -51,7 +51,7 @@ const styles = {
     height: '24dp',
     width: '24dp',
   }
-};
+}
 
 class SimpleAppBar extends React.Component {
   constructor(props){
