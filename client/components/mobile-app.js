@@ -7,6 +7,7 @@ import Routes from '../routes'
 
 const StyledSidebar = styled(Sidebar)`
   padding: 50px;
+  width: 400px;
 `
 
 const StyledGridContainer = styled(Grid)`

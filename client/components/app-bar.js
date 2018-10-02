@@ -19,7 +19,7 @@ const StyledColumnAlign = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: white;
-  width: 30vw;
+  width: 160px;
 `
 
 const styles = {
@@ -50,6 +50,9 @@ const styles = {
   blankIcon: {
     height: '24dp',
     width: '24dp',
+  },
+  drawer: {
+    minWidth: '350px',
   }
 };
 
@@ -143,7 +146,7 @@ class SimpleAppBar extends React.Component {
             <div className={classes.blankIcon} />
           </IconButton>
         </Toolbar>
-        <Drawer open={this.state.expanded} onClose={this.handleMenuClick}>
+        <Drawer className={classes.drawer} open={this.state.expanded} onClose={this.handleMenuClick}>
             <StyledColumnAlign> 
               <Sidebar /> 
             </StyledColumnAlign> 
