@@ -1,39 +1,16 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {changeEmoji} from '../store'
 
 class Emoji extends React.Component {
   constructor(props){
     super(props)
-    this.emojis = [
-      'o_o',
-      '-_-',
-      '-_-',
-      '-_-',
-      '-_-',
-      '-_-',
-      '-_-',
-      '-_-',
-      '-_-',
-      '>_<',
-      '>_<',
-      '>_<',
-      '^_^',
-      'o_-',
-      'o_O',
-      'O_o',
-    ]
-    this.state = {
-      emoji : 0
-    }
     this.changeEmoji = this.changeEmoji.bind(this)
-    this.changeEmojiNormal = this.changeEmojiNormal.bind(this)
     this.timeoutID = undefined 
   }
 
   componentDidMount(){
-    this.setState({
-      emoji : 0
-    })
-    this.changeEmoji()
+    this.timeoutID = setTimeout(this.changeEmoji(this.props.emoji.id),this.props.emoji.duration)
   }
   
   componentWillUnmount(){
@@ -44,29 +21,22 @@ class Emoji extends React.Component {
   }
 
   changeEmoji(){
-    this.setState({
-      emoji: this.random(0, this.emojis.length)
-    })
-    this.timeoutID = setTimeout(()=> {this.changeEmojiNormal()}, this.random(600,1000)) 
-  }
-
-  changeEmojiNormal(){
-    this.setState({
-      emoji: 0
-    })
-    this.timeoutID = setTimeout(()=> {this.changeEmoji()}, this.random(4000,6000))
+    this.props.changeEmoji(this.props.emoji.id)
+    this.timeoutID = setTimeout(()=> {this.changeEmoji(this.props.emoji.id)}, this.props.emoji.duration) 
   }
 
   random(min,max){
     return Math.floor(Math.random() * (max-min) + min)
   }
   
-  render(){
+  render(props){
+    console.log('in Emoji, props are: ', this.props)
+  
     return(
       <div>
         <h2 textalign='center'>
           <font face='courier new'>
-            {this.emojis[this.state.emoji]}
+            {this.props.emoji.face}
           </font>
         </h2>
       </div>
@@ -74,4 +44,16 @@ class Emoji extends React.Component {
   }
 }
 
-export default Emoji
+const mapStateToProps = (state) => {
+  return {
+    emoji : state.emoji.emoji
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeEmoji: (id) => dispatch(changeEmoji(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Emoji)

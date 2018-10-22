@@ -15,7 +15,6 @@ const StyledFrontPageDiv = styled.div`
 class FrontPage extends React.Component{
   constructor(props){
     super(props)
-    console.log(props)
   }
 
   render(props){
