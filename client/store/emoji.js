@@ -79,12 +79,6 @@ export const changeEmoji = (currId) => {
     j++
     chosenRaffle -= emojis[j].frequency
   }
-  
-  console.log('emojis are', emojis)
-  console.log('totalFrequencyCount is', totalFrequencyCount)
-  console.log('j is: ', j)
-
-  console.log("emojis sub j is:", emojis[j])
   return setEmojiAC(emojis[j])
 }
 

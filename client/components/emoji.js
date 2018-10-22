@@ -30,8 +30,6 @@ class Emoji extends React.Component {
   }
   
   render(props){
-    console.log('in Emoji, props are: ', this.props)
-  
     return(
       <div>
         <h2 textalign='center'>
