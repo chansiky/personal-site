@@ -73,7 +73,7 @@ class SidebarDropdown extends React.Component{
                 variant="subheading" 
                 gutterBottom={true}
               > 
-                <StyledLinkText href={elem.url} target="_blank">
+                <StyledLinkText href={elem.url} target={elem.openInNew || "_blank"}>
                   {elem.title}
                 </StyledLinkText>
               </Typography>

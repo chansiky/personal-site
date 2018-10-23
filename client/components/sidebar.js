@@ -53,7 +53,14 @@ class Sidebar extends React.Component{
       id:1,
       title: "github",
       url: "http://www.github.com/chansiky"
-    }],
+    },
+    {
+      id:2,
+      title: "email",
+      url: "mailto:chansiky@gmail.com",
+      openInNew: "_self"
+    }]
+    
     }
   }
 
@@ -80,7 +87,7 @@ class Sidebar extends React.Component{
           <br/>
           <SidebarDropdown  title='Projects'  content={this.props.projectsList} />
           <SidebarDropdown  title='Posts'     content={this.props.postsList} />
-          <SidebarDropdown  title='Past Work' content={this.state.pastWork} />
+          <SidebarDropdown  title='Past Work' content={this.props.pastWork} />
           <Link to={`/about`}>
             <Typography variant='title' gutterBottom={true}>
               About
