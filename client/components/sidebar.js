@@ -39,7 +39,6 @@ const StyledImg = styled.img`
   height: auto;
 `
 
-
 class Sidebar extends React.Component{
   constructor(props){
     super(props)

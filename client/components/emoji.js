@@ -22,6 +22,9 @@ class Emoji extends React.Component {
 
   changeEmoji(){
     this.props.changeEmoji(this.props.emoji.id)
+    if(this.timeoutID) {
+      clearTimeout(this.timeoutID)
+    }
     this.timeoutID = setTimeout(()=> {this.changeEmoji(this.props.emoji.id)}, this.props.emoji.duration) 
   }
 
