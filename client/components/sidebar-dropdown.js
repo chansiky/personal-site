@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import {StyledLinkText} from '../style'
 import { withStyles } from '@material-ui/core/styles';
+import './sidebar-dropdown.css'
 
 const StyledSidebarDropdownDiv = styled.div`
   display: flex;
@@ -13,32 +14,12 @@ const StyledSidebarDropdownDiv = styled.div`
   cursor: pointer;
 `
 
-const StyledProjectsListDiv = styled.div`
-`
-
-const StyledContentItemDiv = styled.div`
-`
-
 const styles = {
   root: {
     flexGrow: 1,
     position: 'fixed',
     variant: 'dense',
   },
-  show: {
-    transform: 'translateY(0)',
-    opacity: 1,
-    height: '100%',
-    overflow: 'hidden',
-    transition: 'transform .4s, height .4s , opacity .1s',
-  },
-  hide: {
-    transform: 'translateY(-100%)',
-    opacity: 0,
-    height: '0',
-    overflow: 'hidden',
-    transition: 'transform .0s, height .0s , opacity .0s',
-  }
 };
 
 class SidebarDropdown extends React.Component{
@@ -54,8 +35,8 @@ class SidebarDropdown extends React.Component{
   }
   getDropdownClassName(){
     return this.state.expanded
-      ? this.props.classes.show
-      : this.props.classes.hide;
+      ? "showDropdown"
+      : "hideDropdown";
   }
 
   hoverFadeIn(event){

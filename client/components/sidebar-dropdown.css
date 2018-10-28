@@ -1,0 +1,13 @@
+.showDropdown {
+  opacity: 1;
+  height: 100%;
+  overflow: hidden;
+  transition: transform .4s, height .4s , opacity .1s;
+}
+
+.hideDropdown {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: transform .0s, height .0s , opacity .0s;
+}
